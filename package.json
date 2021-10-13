@@ -1,13 +1,14 @@
 {
+  "author": "Alec Sloan <sloan.alec@gmail.com> (https://alecsloan.codes/)",
   "name": "rarity-scraper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run": "node -r esm scrape.js",
+    "run": "node -r esm scrape.js"
   },
-  "author": "Alec Sloan",
   "dependencies": {
+    "esm": "^3.2.25",
     "node-schedule": "^2.0.0",
     "playwright": "^1.13.1"
   }
