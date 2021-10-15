@@ -5,6 +5,12 @@
 git clone https://github.com/alecsloan/raritytools-scraper
 cd raritytools-scraper
 npm install
-npm run-script-run
+npm run scrape
 ```
-Vox that cost within your defined threshold (0.01 by default) of ETH / rarity will be added to a json file in /data.
+This will compile a json of all available vox for sale.
+
+## Frontend Usage
+``` sh
+npm run start
+```
+Currently only display a sortable/filterable table listing all vox for sale.
