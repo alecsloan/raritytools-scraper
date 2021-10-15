@@ -34,9 +34,6 @@ async function scrapeVox() {
 
       const foundVOX = await page.locator('text=Matching').first().innerText()
 
-      if (buyableVOX.length == 48)
-        break
-
       if (buyableVOX.length >= foundVOX.match(/\d/g).join("")) {
         break
       }

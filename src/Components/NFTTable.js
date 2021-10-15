@@ -66,7 +66,6 @@ function NFTTable (props) {
       flex: .5,
       headerName: 'Rarity.tools',
       renderCell: (params) => (
-        console.log(params.value.replace('ID ', '')),
         <IconButton
           color='inherit'
           onClick={() => window.open('https://rarity.tools/collectvox/view/' + params.value.replace('ID ', ''), "_blank")}
