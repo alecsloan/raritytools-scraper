@@ -36,13 +36,24 @@ function NFTTable () {
     {
       field: 'ethPerRarity',
       flex: 1,
-      headerName: 'Eth/Rarity',
+      headerName: 'ETH/Rarity',
       renderCell: (params) => (
         (params.value)
           ? params.value.toFixed(6)
           : null
-
       ),
+      type: 'number'
+    },
+    {
+      field: 'rarityPerETH',
+      flex: 1,
+      headerName: 'Rarity/ETH',
+      renderCell: (params) => (
+        (params.row.rarity && params.row.price)
+          ? (params.row.rarity / params.row.price).toFixed(6)
+          : null
+      ),
+      sortable: false,
       type: 'number'
     },
     {
