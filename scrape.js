@@ -56,7 +56,7 @@ async function scrapeVox() {
 
       const voxURL = buyableVOX[i]
 
-      await page.goto(voxURL)
+      await page.goto(voxURL).catch(() => console.log("Failed to access page for VOX " + voxURL))
 
       await new Promise(function (resolve) {
           setTimeout(resolve, detailLoadTime)
@@ -99,23 +99,24 @@ async function scrapeVox() {
 
       console.log(vox)
 
-      fs.readFile(voxFileName, function (err, data) {
-        if (!data) {
-          data = '[]'
-        }
-
-        var json = JSON.parse(data)
-        json.push(vox)
-
-        fs.writeFile(voxFileName, JSON.stringify(json, undefined, 4), (error) => {
-          if (error) {
-            console.log(error)
+      if (vox.ethPerRarity > 0) {
+        fs.readFile(voxFileName, function (err, data) {
+          if (!data) {
+            data = '[]'
           }
-          else {
-            console.log("VOX " + (i + 1) + " of " + buyableVOX.length + " saved.")
-          }
+
+          var json = JSON.parse(data)
+          json.push(vox)
+
+          fs.writeFile(voxFileName, JSON.stringify(json, undefined, 4), (error) => {
+            if (error) {
+              console.log(error)
+            } else {
+              console.log("VOX " + (i + 1) + " of " + buyableVOX.length + " saved.")
+            }
+          })
         })
-      })
+      }
     }
 
     browser.close()
