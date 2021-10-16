@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
-import originalNFTs from "../data/VOX.json";
 import BaseDataGrid from "./BaseDataGrid";
 
 function NFTTable (props) {
@@ -115,7 +114,7 @@ function NFTTable (props) {
     }
   ]
 
-  const[nfts, setNFTs] = useState(originalNFTs)
+  const[nfts, setNFTs] = useState(props.nfts)
 
   useEffect(() => {
     const removePurchasedNFTs = async (nfts) => {
@@ -164,7 +163,7 @@ function NFTTable (props) {
       setNFTs(nfts.filter(nft => assets.map(asset => asset.token_id).includes(nft.id)))
     }
 
-    removePurchasedNFTs(originalNFTs)
+    removePurchasedNFTs(props.nfts)
   }, [setNFTs])
 
   return (
