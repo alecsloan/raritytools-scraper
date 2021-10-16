@@ -145,7 +145,7 @@ function NFTTable () {
     }
 
     removePurchasedNFTs(originalNFTs)
-  }, [originalNFTs, setNFTs])
+  }, [setNFTs])
 
   return (
     <div>
