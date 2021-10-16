@@ -21,6 +21,9 @@ function NFTTable (props) {
             height={28}
             onClick={() => {setImageName(params.row.name); setImageURL(params.value)}}
             src={params.value}
+            style={{
+              verticalAlign: "middle"
+            }}
           />
         </div>
       ),
