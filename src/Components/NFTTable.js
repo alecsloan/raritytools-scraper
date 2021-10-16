@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import {DataGrid} from "@mui/x-data-grid";
 import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import originalNFTs from "../data/VOX-10-14-2021.json";
+import BaseDataGrid from "./BaseDataGrid";
 
 function NFTTable () {
   const [imageName, setImageName] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(20);
 
   const columns = [
     {
@@ -45,7 +43,7 @@ function NFTTable () {
           : null
 
       ),
-      width: 120
+      type: 'number'
     },
     {
       field: 'price',
@@ -53,17 +51,20 @@ function NFTTable () {
       headerName: 'Price',
       renderCell: (params) => (
         params.value + " ETH"
-      )
+      ),
+      type: 'number'
     },
     {
       field: 'rank',
       flex: .5,
       headerName: 'Rank',
+      type: 'number'
     },
     {
       field: 'rarity',
       flex: .5,
       headerName: 'Rarity',
+      type: 'number'
     },
     {
       field: 'id',
@@ -80,7 +81,7 @@ function NFTTable () {
           <Launch />
         </IconButton>
       ),
-      width: 1
+      sortable: false,
     },
     {
       field: 'opensea',
@@ -97,7 +98,7 @@ function NFTTable () {
           <Launch />
         </IconButton>
       ),
-      width: 1
+      sortable: false,
     }
   ]
 
@@ -150,24 +151,9 @@ function NFTTable () {
   return (
     <div>
       {nfts ?
-        <DataGrid
-          autoHeight
+        <BaseDataGrid
           columns={columns}
-          columnBuffer={columns.length}
-          disableColumnSelector
-          disableSelectionOnClick
-          onPageChange={(newPage) => setPage(newPage)}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          page={page}
-          pageSize={pageSize}
           rows={nfts}
-          rowsPerPageOptions={[10, 20, 30, 40, 50]}
-          sortModel={[{field: 'ethPerRarity', sort: 'asc'}]}
-          style={{
-            margin: 'auto',
-            marginTop: '50px',
-            width: '80%'
-          }}
         />
         : null
       }
