@@ -164,7 +164,7 @@ function NFTTable (props) {
     }
 
     removePurchasedNFTs(props.nfts)
-  }, [setNFTs])
+  }, [setNFTs, props.nfts])
 
   return (
     <div>
