@@ -165,6 +165,7 @@ function NFTTable () {
         <BaseDataGrid
           columns={columns}
           rows={nfts}
+          theme={props.theme}
         />
         : null
       }

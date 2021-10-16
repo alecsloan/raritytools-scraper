@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {DataGrid} from "@mui/x-data-grid";
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 function BaseDataGrid (props) {
   const [page, setPage] = useState(0);
@@ -27,7 +26,8 @@ function BaseDataGrid (props) {
         style={{
           margin: 'auto',
           marginTop: '50px',
-          width: '80%'
+          width: '80%',
+          color: props.theme.palette.mode === "dark" ? 'white' : 'black'
         }}
       />
   );
