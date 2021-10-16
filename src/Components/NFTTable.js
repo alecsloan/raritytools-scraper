@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import originalNFTs from "../data/VOX-10-14-2021.json";
+import originalNFTs from "../data/VOX.json";
 import BaseDataGrid from "./BaseDataGrid";
 
-function NFTTable () {
+function NFTTable (props) {
   const [imageName, setImageName] = useState(null);
   const [imageURL, setImageURL] = useState(null);
 
@@ -152,6 +151,12 @@ function NFTTable () {
 
           assets = nfts
         })
+
+      if (assets.length === nfts.length) {
+        setNFTs(nfts)
+
+        return
+      }
 
       setNFTs(nfts.filter(nft => assets.map(asset => asset.token_id).includes(nft.id)))
     }
