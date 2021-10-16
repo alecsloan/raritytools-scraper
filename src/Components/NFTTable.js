@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {DataGrid} from "@mui/x-data-grid";
 import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import originalNFTs from "../data/VOX-10-14-2021.json";
 
-import nfts from '../data/VOX.json'
-
-function NFTTable (props) {
+function NFTTable () {
   const [imageName, setImageName] = useState(null);
   const [imageURL, setImageURL] = useState(null);
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(20);
 
   const columns = [
     {
@@ -17,7 +18,7 @@ function NFTTable (props) {
       flex: .2,
       headerName: ' ',
       renderCell: (params) => (
-        <div>
+        <div style={{ cursor: "pointer" }}>
           <img
             alt={params.row.name}
             height={28}
@@ -39,7 +40,10 @@ function NFTTable (props) {
       flex: 1,
       headerName: 'Eth/Rarity',
       renderCell: (params) => (
-        params.value.toFixed(6)
+        (params.value)
+          ? params.value.toFixed(6)
+          : null
+
       ),
       width: 120
     },
@@ -58,7 +62,7 @@ function NFTTable (props) {
     },
     {
       field: 'rarity',
-      flex: .4,
+      flex: .5,
       headerName: 'Rarity',
     },
     {
@@ -68,7 +72,7 @@ function NFTTable (props) {
       renderCell: (params) => (
         <IconButton
           color='inherit'
-          onClick={() => window.open('https://rarity.tools/collectvox/view/' + params.value.replace('ID ', ''), "_blank")}
+          onClick={() => window.open('https://rarity.tools/collectvox/view/' + params.value, "_blank")}
           style={{
             textAlign: "center"
           }}
@@ -97,26 +101,76 @@ function NFTTable (props) {
     }
   ]
 
+  const[nfts, setNFTs] = useState(originalNFTs)
+
+  useEffect(() => {
+    const removePurchasedNFTs = async (nfts) => {
+      let openseaAPIURLs = []
+
+      for (let start = 0; start < nfts.length; start += 30) {
+        let end = start + 30
+
+        if (end > nfts.length) {
+          end = nfts.length
+        }
+
+        let tokenIds = ""
+
+        nfts.slice(start, end).forEach((nft) => {
+          tokenIds += "&token_ids=" + nft.id
+        })
+
+        openseaAPIURLs.push("https://api.opensea.io/api/v1/assets?asset_contract_address=0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c&limit=30&" + tokenIds)
+      }
+
+      let assets = []
+
+      await Promise.all(openseaAPIURLs.map(url => fetch(url)))
+        .then(responses =>
+          Promise.all(responses.map(res => res.json()))
+        ).then(json => {
+          if (json) {
+            return json.forEach(subData => assets = assets.concat(subData.assets.filter(nft => nft.sell_orders)))
+          }
+          else {
+            assets = nfts
+          }
+        }).catch(() =>  {
+          console.log("Failed to connect to Opensea")
+
+          assets = nfts
+        })
+
+      setNFTs(nfts.filter(nft => assets.map(asset => asset.token_id).includes(nft.id)))
+    }
+
+    removePurchasedNFTs(originalNFTs)
+  }, [originalNFTs, setNFTs])
+
   return (
     <div>
-      <DataGrid
-        autoHeight
-        columns={columns}
-        columnBuffer={columns.length}
-        pageSize={20}
-        rows={nfts.filter((nft) => nft.ethPerRarity > 0)}
-        sortModel={[
-          {
-            field: 'ethPerRarity',
-            sort: 'asc',
-          },
-        ]}
-        style={{
-          margin: 'auto',
-          marginTop: '50px',
-          width: '80%'
-        }}
-      />
+      {nfts ?
+        <DataGrid
+          autoHeight
+          columns={columns}
+          columnBuffer={columns.length}
+          disableColumnSelector
+          disableSelectionOnClick
+          onPageChange={(newPage) => setPage(newPage)}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+          page={page}
+          pageSize={pageSize}
+          rows={nfts}
+          rowsPerPageOptions={[10, 20, 30, 40, 50]}
+          sortModel={[{field: 'ethPerRarity', sort: 'asc'}]}
+          style={{
+            margin: 'auto',
+            marginTop: '50px',
+            width: '80%'
+          }}
+        />
+        : null
+      }
 
       <Dialog onClose={() => {setImageName(null); setImageURL(null)}} open={imageName !== null && imageURL !== null}>
         <img

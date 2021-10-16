@@ -6,7 +6,7 @@ const catalogLoadTime = 6000
 const detailLoadTime = 5000
 
 async function scrapeVox() {
-    const browser = await playwright.chromium.launch({ headless: false });
+    const browser = await playwright.chromium.launch({ headless: true });
 
     //Get a list of for sale vox
     console.log("### Gathering a list of VOX for sale ###")
@@ -28,11 +28,11 @@ async function scrapeVox() {
 
       buyableVOX = buyableVOX.concat(buyableVOXURLs)
 
-      console.log(buyableVOX.length + " in list");
-
       const nextPage = await page.locator('text=Next >').first();
 
       const foundVOX = await page.locator('text=Matching').first().innerText()
+
+      console.log(buyableVOX.length + " of " + foundVOX.match(/\d/g).join("") + " in list");
 
       if (buyableVOX.length >= foundVOX.match(/\d/g).join("")) {
         break
@@ -66,7 +66,7 @@ async function scrapeVox() {
           return div.innerText.replace(' ETH','')
       }).catch(() => console.log("Failed to get price for VOX " + voxURL))
       const id = await page.$eval('div.flex-grow.text-sm.text-right.text-gray-400', div => {
-        return div.innerText
+        return div.innerText.replace('ID ', '')
       }).catch(() => console.log("Failed to get name for VOX " + voxURL))
       const image = await page.$eval('img.block.p-0', img => {
         return img.src
