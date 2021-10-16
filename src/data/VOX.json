@@ -730,9 +730,6 @@
         "ethPerRarity": 0.0413753807718437
     },
     {
-        "ethPerRarity": null
-    },
-    {
         "id": "8865",
         "image": "https://lh3.googleusercontent.com/yyqGc6_LULGKzpCiPCCjd0ZwRdfjk9FFzzvpHEDo1paRaibMMWTHcJHsWGJ5ZMGYqBiLKwxWEg1xyETwMft0-uaWDk_df97_3kjt",
         "price": "10",
@@ -1181,9 +1178,6 @@
         "rank": "774",
         "rarity": "159.40",
         "ethPerRarity": 0.050188205771643665
-    },
-    {
-        "ethPerRarity": null
     },
     {
         "id": "2648",
@@ -2556,9 +2550,6 @@
         "ethPerRarity": 0.016413827406117878
     },
     {
-        "ethPerRarity": null
-    },
-    {
         "id": "2285",
         "image": "https://lh3.googleusercontent.com/TdRkYozzy61SxnvMLWt1MBC41PAGAMTtencHSGO33Eus6UH2pENzYvbQSglJwTv70fwHIkCQjWxt0ybbLEPhjkL78YnuQd37x-RjGA",
         "price": "8",
@@ -3499,9 +3490,6 @@
         "ethPerRarity": 0.014792899408284023
     },
     {
-        "ethPerRarity": null
-    },
-    {
         "id": "3739",
         "image": "https://lh3.googleusercontent.com/alzq-RxslLbHOATdg1F27bU07PvY9ACJMXxbCL3RXjaUh-wkS3KlTEw-Q90aAX4kTuK08LmcrAxObzRZdO03hk0_pXNJbx4cQzwuOQ",
         "price": "1.9",
@@ -3980,9 +3968,6 @@
         "rank": "1733",
         "rarity": "104.23",
         "ethPerRarity": 0.04317375035978125
-    },
-    {
-        "ethPerRarity": null
     },
     {
         "id": "7370",
@@ -6775,9 +6760,6 @@
         "ethPerRarity": 0.012178413761607552
     },
     {
-        "ethPerRarity": null
-    },
-    {
         "id": "5477",
         "image": "https://lh3.googleusercontent.com/HaQIXCQi0TFKqCPZHumn-DMza-jKTheTkO90l8AK0j-J-HkCIM_6fS98SR7l87G0_B-xhKh3jo4_1zSsnAPc_MSFF7sb_-js_6Je",
         "price": "1.49",
@@ -8578,16 +8560,6 @@
         "ethPerRarity": 0.2638986629134412
     },
     {
-        "id": "1849",
-        "image": "https://lh3.googleusercontent.com/JJviftA4ORyfbI2wss5I4NO3g95UbwJ9kGN6hgxaVRo2M39-B0xZW7JtdbHXP-LPM07tOVGOy6KHLndmbkB4hhph98Da2aZlR48bO-o",
-        "price": "",
-        "name": "Builder VOX #1265",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1849?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5165",
-        "rarity": "56.82",
-        "ethPerRarity": 0
-    },
-    {
         "id": "3570",
         "image": "https://rarity.tools/white.png",
         "price": "0.46",
@@ -8656,9 +8628,6 @@
         "rank": "5260",
         "rarity": "56.44",
         "ethPerRarity": 0.013288447909284197
-    },
-    {
-        "ethPerRarity": null
     },
     {
         "id": "2653",
@@ -8819,16 +8788,6 @@
         "rank": "5349",
         "rarity": "56.05",
         "ethPerRarity": 0.017662801070472793
-    },
-    {
-        "id": "7287",
-        "image": "https://lh3.googleusercontent.com/eRvfvpiRxeko5Fl-HAAf3NEc8G0BtCb8G7AhgCdVZyfJPME-u8jGEmPHy8cAzmQkfPGs2qd9bqSZ_5qOoMUxHVOZEgJT-KbDXkeh",
-        "price": "",
-        "name": "Factory Worker VOX #6703",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7287?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5353",
-        "rarity": "56.03",
-        "ethPerRarity": 0
     },
     {
         "id": "124",
@@ -9051,16 +9010,6 @@
         "ethPerRarity": 0.2515814205675041
     },
     {
-        "id": "8412",
-        "image": "https://lh3.googleusercontent.com/FbJM2MLX9Wxv3JsruTv04UDaxQFplF7zotW5wJFSVI3dfSyvy_33aaQl2Yf7gxAnNn22qDaDbqwLPbG6Ox64JhwiqjaHbaL13OkjdA",
-        "price": "",
-        "name": "Builder VOX #7828",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8412?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5541",
-        "rarity": "55.28",
-        "ethPerRarity": 0
-    },
-    {
         "id": "1484",
         "image": "https://lh3.googleusercontent.com/HDY39DQvbvnz84zl3vsC7xoTICeT1gTS_B5NcacIsWwhq7ZnyA-SWf64zMG3y0i-Uj4Z9L-mpd26BGJok4k5XQ2k5Hp1BxvMJEaQ",
         "price": "1.6",
@@ -9229,9 +9178,6 @@
         "rank": "5643",
         "rarity": "54.89",
         "ethPerRarity": 0.018218254691200583
-    },
-    {
-        "ethPerRarity": null
     },
     {
         "id": "3644",
@@ -9572,16 +9518,6 @@
         "rank": "5857",
         "rarity": "54.21",
         "ethPerRarity": 0.009223390518354546
-    },
-    {
-        "id": "2542",
-        "image": "https://lh3.googleusercontent.com/f9jLy88PrA2EHHIbMjI4jAeLVjyJSeqOZAYS89j0EsG2sXIUZK8dzNGVSpfTnf5VCdkXoZsYOTDSXPiWisucAEltmoOomzL2ywHe",
-        "price": "",
-        "name": "Lumberjack VOX #1958",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/2542?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5894",
-        "rarity": "54.11",
-        "ethPerRarity": 0
     },
     {
         "id": "5709",
@@ -10402,16 +10338,6 @@
         "rank": "6495",
         "rarity": "52.04",
         "ethPerRarity": 0.01518063028439662
-    },
-    {
-        "id": "7781",
-        "image": "https://lh3.googleusercontent.com/dq98Gc3xXqBIrsz-8DlV5xSdPD2Aa_06YeWJRGrEoXWBvMOGxl8cORNibQdx9OrHiJcU3rofwAsiz_4ZcLWRTLAST_NylP-O1vHo",
-        "price": "",
-        "name": "Lumberjack VOX #7197",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7781?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "6501",
-        "rarity": "52.02",
-        "ethPerRarity": 0
     },
     {
         "id": "4046",
@@ -11564,16 +11490,6 @@
         "ethPerRarity": 0.009059794644654721
     },
     {
-        "id": "3843",
-        "image": "https://lh3.googleusercontent.com/2kUR6Rv6Acse7kciaz0jeghVArh8lifRsjK3M8DPCeiA_uNWmbxSnLbMFzyEleMeU04B2pBhUzSrwcDhBHwOrhmp7S0Sh1ifO_U9JTg",
-        "price": "",
-        "name": "Farmer VOX #3259",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3843?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "7187",
-        "rarity": "49.67",
-        "ethPerRarity": 0
-    },
-    {
         "id": "7425",
         "image": "https://lh3.googleusercontent.com/QTtembD8seIORiv0IZOWeCguO_aVdMGtQ6inFFT4O0KW8ORdxC54gNc7XcqBsmFmk8lJhGSpZO_oFZvVK0NGWEl0BtvMhvliRU3V",
         "price": "0.6585",
@@ -12174,18 +12090,6 @@
         "ethPerRarity": 0.009453349773941636
     },
     {
-        "ethPerRarity": null
-    },
-    {
-        "ethPerRarity": null
-    },
-    {
-        "ethPerRarity": null
-    },
-    {
-        "ethPerRarity": null
-    },
-    {
         "id": "4079",
         "image": "https://lh3.googleusercontent.com/JXpeHWaOv3S5_E5n6Frt3r557K9j995NlkICR_4y70FJOlFKAyZIq8ZpkcbDJoyH_OYOd3WriFMNTSmZ5q9LwQE_DGRgJbii5AKEqg",
         "price": "0.99",
@@ -12534,16 +12438,6 @@
         "rank": "7740",
         "rarity": "47.77",
         "ethPerRarity": 0.020724303956458027
-    },
-    {
-        "id": "3859",
-        "image": "https://lh3.googleusercontent.com/4-WtWb2gHLEy4Eor-yb4TszWGn02RmaUB-84V7HIzJdP6ZLbZsTs2u8DNxkl35cYr9pl0IDfNtIVU1jgcJBkivxCF-Eq7NP6iNxkOw",
-        "price": "",
-        "name": "Lumberjack VOX #3275",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3859?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "7752",
-        "rarity": "47.73",
-        "ethPerRarity": 0
     },
     {
         "id": "73",
@@ -13156,9 +13050,6 @@
         "ethPerRarity": 0.013987518829352272
     },
     {
-        "ethPerRarity": null
-    },
-    {
         "id": "5609",
         "image": "https://lh3.googleusercontent.com/OcSab1IvA4Xv7WazjBbT9jHLMWP4YMcrUH5pPSFDS6OpFsd24bmZCXDXnn0QLjDqzWOC7luL8j2aAakVXOPVLCI8QZRRgDzd-nsdif4",
         "price": "0.44",
@@ -13347,16 +13238,6 @@
         "rank": "8171",
         "rarity": "45.98",
         "ethPerRarity": 0.01087429317094389
-    },
-    {
-        "id": "894",
-        "image": "https://lh3.googleusercontent.com/B1N5JxSUwd_fMHYMlOVwvezCvcCQ4op_6pZmSwwqkvvkyw_Y7gfp3Sf3LoAKIvrB881RpoJNt-HAoUzTJfT5ZFHe4q703MqvFNXmi5M",
-        "price": "",
-        "name": "Miller VOX #310",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/894?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "8176",
-        "rarity": "45.96",
-        "ethPerRarity": 0
     },
     {
         "id": "2651",
@@ -14139,16 +14020,6 @@
         "ethPerRarity": 0.03514979948100967
     },
     {
-        "id": "4308",
-        "image": "https://rarity.tools/white.png",
-        "price": "",
-        "name": "Vox Collectibles #3724",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/4308?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "8516",
-        "rarity": "42.26",
-        "ethPerRarity": 0
-    },
-    {
         "id": "941",
         "image": "https://lh3.googleusercontent.com/Qz1zACpGvtV8Q_LDet4AEf7ArqVQC1XC9RCU7TxYxcalK7_FrQ7aOAu75ZCk9eBZsdGD8jndRjbuKHTMkOI6H55KmtE-9sqOQjDz",
         "price": "1",
@@ -14307,16 +14178,6 @@
         "rank": "8588",
         "rarity": "41.32",
         "ethPerRarity": 0.01452081316553727
-    },
-    {
-        "id": "5567",
-        "image": "https://lh3.googleusercontent.com/w-MclhCjwEAMHOSzX9DZKNZRurTYzPFMRsmgpfXfIp6E6BvTlY5HDJKUfNEYbxUqcu07eFVFWV_I7uwC3YB8z4iwQIH0psdl6hhI",
-        "price": "",
-        "name": "Miller VOX #4983",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5567?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "8596",
-        "rarity": "41.23",
-        "ethPerRarity": 0
     },
     {
         "id": "3384",
