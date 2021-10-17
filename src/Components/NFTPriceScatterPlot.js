@@ -52,7 +52,7 @@ function NFTPriceScatterPlot (props) {
       tooltip: {
         callbacks: {
           label: function(ctx) {
-            return [`Name: ${ctx.raw.label}`, `Rarity: ${ctx.raw.x}`, ` Price: ${ctx.raw.y}`]
+            return [`Name: ${ctx.raw.label}`, `Rarity: ${ctx.raw.y}`, ` Price: ${ctx.raw.x}`]
           }
         }
       }
