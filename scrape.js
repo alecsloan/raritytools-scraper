@@ -1,9 +1,28 @@
-const playwright = require('playwright');
-var fs = require('fs');
+import schedule from "node-schedule";
+import * as playwright from "playwright";
+import {readFile, rename, writeFile} from "fs";
+
 
 //TODO: drop these in favor of waiting for components to load
 const catalogLoadTime = 6000
 const detailLoadTime = 5000
+
+async function main() {
+  const jobs = {};
+
+  console.log('\n Searching VOX ')
+
+  console.log('First job on ' + new Date().toLocaleString("en-US") + '\n')
+
+  jobs['scrapeVOX'] = schedule.scheduleJob(Date.now() + 1000, async () => {
+    await scrapeVox().catch(e => console.log('Couldn\'t schedule new job: ' + e)).then(() => {
+      var nextSchedule = new Date(new Date().getTime() + 1000);
+      jobs['scrapeVOX'].reschedule(nextSchedule);
+    })
+
+  });
+
+}
 
 async function scrapeVox() {
     const browser = await playwright.chromium.launch({ headless: true });
@@ -32,7 +51,7 @@ async function scrapeVox() {
 
       const foundVOX = await page.locator('text=Matching').first().innerText()
 
-      console.log(buyableVOX.length + " of " + foundVOX.match(/\d/g).join("") + " in list");
+      console.log(`${buyableVOX.length} of ${foundVOX.match(/\d/g).join("")} in list`);
 
       if (buyableVOX.length >= foundVOX.match(/\d/g).join("")) {
         break
@@ -49,7 +68,7 @@ async function scrapeVox() {
 
     const date = new Date().toLocaleDateString('en-US').replace(/\//g, '-')
 
-    const voxFileName = __dirname + '/src/data/VOX-' + date + '.json'
+    const voxFileName = `${__dirname}/src/data/VOX-${date}-temp.json`
 
     for (let i = 0; i < buyableVOX.length; i++) {
       const page = await browser.newPage()
@@ -100,7 +119,7 @@ async function scrapeVox() {
       console.log(vox)
 
       if (vox.ethPerRarity > 0) {
-        fs.readFile(voxFileName, function (err, data) {
+        readFile(voxFileName, function (err, data) {
           if (!data) {
             data = '[]'
           }
@@ -108,18 +127,29 @@ async function scrapeVox() {
           var json = JSON.parse(data)
           json.push(vox)
 
-          fs.writeFile(voxFileName, JSON.stringify(json, undefined, 4), (error) => {
+          writeFile(voxFileName, JSON.stringify(json, undefined, 4), (error) => {
             if (error) {
               console.log(error)
             } else {
-              console.log("VOX " + (i + 1) + " of " + buyableVOX.length + " saved.")
+              console.log(`VOX ${i + 1} of ${buyableVOX.length} saved.`)
             }
           })
         })
       }
     }
 
-    browser.close()
+  rename(`${__dirname}/src/data/VOX.json`, voxFileName.replace('-temp', ''), (error) => {
+    if (error) {
+      console.log(error);
+    }
+  });
+  rename(voxFileName, `${__dirname}/src/data/VOX.json`, (error) => {
+    if (error) {
+      console.log(error);
+    }
+  });
+
+  browser.close()
 }
 
-scrapeVox()
+main()

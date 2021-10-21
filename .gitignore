@@ -354,5 +354,6 @@ MigrationBackup/
 .ionide/
 
 .idea/
-package-lock.json
 build
+package-lock.json
+yarn.lock
