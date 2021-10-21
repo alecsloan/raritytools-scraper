@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node -r esm scrape.js",
+    "build": "react-scripts build && npx playwright install && node -r esm scrape.js",
     "scrape": "node -r esm scrape.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
