@@ -143,6 +143,11 @@ async function scrapeVox() {
       console.log(error);
     }
   });
+
+  await new Promise(function (resolve) {
+    setTimeout(resolve, 1000)
+  });
+
   rename(voxFileName, `${__dirname}/src/data/VOX.json`, (error) => {
     if (error) {
       console.log(error);
