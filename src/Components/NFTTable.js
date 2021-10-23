@@ -47,7 +47,7 @@ function NFTTable (props) {
     },
     {
       field: 'rarityPerETH',
-      flex: 1,
+      flex: .5,
       headerName: 'Rarity/ETH',
       renderCell: (params) => (
         (params.row.rarity && params.row.price)

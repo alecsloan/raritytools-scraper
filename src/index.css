@@ -16,3 +16,11 @@ div.MuiTablePagination-root,
 svg.MuiSelect-icon {
   color: inherit;
 }
+
+button.MuiButtonBase-root.Mui-selected {
+  color: #6a6a6a;
+}
+
+button.MuiButtonBase-root {
+  margin: 0 20px;
+}

@@ -1,10 +1,10 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import {CssBaseline, Grid, ThemeProvider} from "@mui/material";
 import {useState} from "react";
 
 import Header from "./Components/Header";
 import NFTTable from "./Components/NFTTable";
+import NFTGraphDisplayController from "./Components/NFTGraphDisplayController";
 import * as Theme from "./Theme/index"
-import NFTPriceScatterPlot from "./Components/NFTPriceScatterPlot";
 import nfts from "./data/VOX.json";
 
 
@@ -17,7 +17,12 @@ function App() {
 
       <Header setTheme={setTheme.bind(this)} theme={theme} />
 
-      <NFTPriceScatterPlot nfts={nfts} />
+      <Grid container>
+        <Grid item lg={1} sm={0} />
+        <Grid item lg={10} sm={12}>
+          <NFTGraphDisplayController nfts={nfts} />
+        </Grid>
+      </Grid>
 
       <NFTTable nfts={nfts} theme={theme} />
     </ThemeProvider>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Scatter} from "react-chartjs-2";
 
-function NFTPriceScatterPlot (props) {
+function NFTValueCurve (props) {
   const uniqueNFTs =
     Array.from(
       new Set(props.nfts.map(nft => nft.id)))
@@ -24,7 +24,7 @@ function NFTPriceScatterPlot (props) {
       x: {
         ticks: {
           beginAtZero: false,
-          callback: function(value, index, values) {
+          callback: function(value) {
             if (value === 0.5) return "0.5 ETH"
             if (value === 1) return "1 ETH"
             if (value === 2) return "2 ETH"
@@ -70,4 +70,4 @@ function NFTPriceScatterPlot (props) {
   );
 }
 
-export default NFTPriceScatterPlot;
+export default NFTValueCurve;
