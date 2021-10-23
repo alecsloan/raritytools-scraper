@@ -14,7 +14,7 @@ function NFTValueCurve () {
   const data = {
     datasets: [
       {
-        label: 'VOX Rarity vs Price',
+        label: 'VOX Rarity vs Rank',
         data: rarity.map(nft => { return { x: nft.rank, y: nft.rarity, label: nft.id} }),
         backgroundColor: 'rgba(255, 99, 132, 1)',
       },
