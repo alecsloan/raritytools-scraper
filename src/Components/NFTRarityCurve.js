@@ -44,7 +44,7 @@ function NFTValueCurve () {
       tooltip: {
         callbacks: {
           label: function(ctx) {
-            return [`Name: ${ctx.raw.label}`, `Rarity: ${ctx.raw.y}`, ` Rank: ${ctx.raw.x}`]
+            return [`Id: ${ctx.raw.label}`, ` Rank: ${ctx.raw.x}`, `Rarity: ${ctx.raw.y}`]
           }
         }
       }
