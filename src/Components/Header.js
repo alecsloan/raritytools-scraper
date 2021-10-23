@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Alert, AlertTitle, AppBar, Button, IconButton, Slide, Snackbar, Toolbar} from "@mui/material";
+import {Alert, AppBar, IconButton, Snackbar, Toolbar} from "@mui/material";
 import {Brightness2, Brightness7, ThumbUp} from "@mui/icons-material";
 
 import * as Theme from "../Theme/index"
