@@ -51,7 +51,8 @@ function NFTValueCurve () {
     },
     tooltips: {
       enabled: false
-    }
+    },
+    normalized: true
   };
 
   return (
