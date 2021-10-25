@@ -3,8 +3,40 @@ import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
 import BaseDataGrid from "./BaseDataGrid";
+import {makeStyles} from "@material-ui/styles";
+
+const styles = makeStyles({
+  root: {
+    height: 600,
+    width: "100%",
+    "& .MuiDataGrid-iconButtonContainer": {
+      display: "none"
+    },
+    // NOTE: Doing display: none prevents the menu to be positioned correctly when opening it using the keyboard.
+    "& .MuiDataGrid-menuIcon": {
+      visibility: "hidden",
+      width: 0
+    },
+    "& .MuiDataGrid-columnHeader:hover": {
+      "& .MuiDataGrid-iconButtonContainer": {
+        display: "flex"
+      },
+      "& .MuiDataGrid-menuIcon": {
+        visibility: "visible",
+        width: "auto"
+      }
+    },
+    "& .MuiDataGrid-columnHeader.MuiDataGrid-columnHeader--sorted": {
+      "& .MuiDataGrid-iconButtonContainer": {
+        display: "flex"
+      }
+    }
+  }
+});
 
 function NFTTable (props) {
+  const classes = styles();
+
   const [imageName, setImageName] = useState(null);
   const [imageURL, setImageURL] = useState(null);
 
@@ -170,11 +202,13 @@ function NFTTable (props) {
   return (
     <div>
       {nfts ?
-        <BaseDataGrid
-          columns={columns}
-          rows={nfts}
-          theme={props.theme}
-        />
+        <div className={classes.root}>
+          <BaseDataGrid
+            columns={columns}
+            rows={nfts}
+            theme={props.theme}
+          />
+        </div>
         : null
       }
 
