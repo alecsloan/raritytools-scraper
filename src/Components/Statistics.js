@@ -1,6 +1,4 @@
-import {Box, Paper, ThemeProvider, Typography} from "@mui/material";
-import nfts from "../data/VOX.json";
-
+import {Box, Paper, Typography} from "@mui/material";
 
 export default function Statistics(props) {
 
@@ -14,7 +12,7 @@ export default function Statistics(props) {
 
   const middle = Math.ceil(rarityPerEthSortedValues.length / 2)
 
-  const median = rarityPerEthSortedValues.length % 2 == 0
+  const median = rarityPerEthSortedValues.length % 2 === 0
     ? (rarityPerEthSortedValues[middle] + rarityPerEthSortedValues[middle - 1]) / 2
     : rarityPerEthSortedValues[middle - 1]
 
