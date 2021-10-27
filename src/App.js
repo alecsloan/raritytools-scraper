@@ -4,9 +4,9 @@ import {useState} from "react";
 import Header from "./Components/Header";
 import NFTTable from "./Components/NFTTable";
 import NFTGraphDisplayController from "./Components/NFTGraphDisplayController";
+import Statistics from "./Components/Statistics";
 import * as Theme from "./Theme/index"
 import nfts from "./data/VOX.json";
-
 
 function App() {
   const [theme, setTheme] = useState(Theme.dark)
@@ -16,6 +16,8 @@ function App() {
       <CssBaseline />
 
       <Header setTheme={setTheme.bind(this)} theme={theme} />
+
+      <Statistics nfts={nfts} />
 
       <Grid container>
         <Grid item lg={1} sm={0} />
