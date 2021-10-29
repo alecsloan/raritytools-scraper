@@ -17,10 +17,10 @@ svg.MuiSelect-icon {
   color: inherit;
 }
 
-button.MuiButtonBase-root.Mui-selected {
-  color: #6a6a6a;
+button.MuiButtonBase-root {
+  padding: 12px 16px;
 }
 
-button.MuiButtonBase-root {
-  margin: 0 20px;
+button.MuiButtonBase-root.Mui-selected {
+  color: #6a6a6a;
 }

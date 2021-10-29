@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {Box, Tab} from "@mui/material";
-import {TabContext, TabList, TabPanel} from "@mui/lab";
+import {Box, Tab, Tabs} from "@mui/material";
+import {TabContext, TabPanel} from "@mui/lab";
 import NFTValueCurve from "./NFTValueCurve";
 import NFTRarityCurve from "./NFTRarityCurve";
 
@@ -15,11 +15,11 @@ function NFTGraphDisplayController (props) {
     <Box sx={{ width: '100%' }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange}>
+          <Tabs indicatorColor="secondary" onChange={handleChange} value={value} >
             <Tab label="Value Curve" value="1" />
             <Tab label="Rarity Curve" value="2" />
             <Tab label="Hide" value="3" />
-          </TabList>
+          </Tabs>
         </Box>
         <TabPanel value="1">
           <NFTValueCurve nfts={props.nfts} />
