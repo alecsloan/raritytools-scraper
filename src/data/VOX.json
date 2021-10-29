@@ -442,12 +442,12 @@
     {
         "id": "7985",
         "image": "https://lh3.googleusercontent.com/ID3vHJEgdctI0D3_WmKt5x92OKkr2mnHssFkehHt81rQpt7B9w_Xsj08CXqvoaPzzhd8rFCt2t6Bo1JQLk_i36hL5eJWgt8x4vFPjg",
-        "price": "6.5553",
+        "price": "6.3333",
         "name": "Skeleton Farmer VOX #7401",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7985?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "245",
         "rarity": "682.99",
-        "ethPerRarity": 0.00959794433300634
+        "ethPerRarity": 0.009272902970760919
     },
     {
         "id": "3133",
@@ -492,12 +492,12 @@
     {
         "id": "6319",
         "image": "https://lh3.googleusercontent.com/5q5CC8Yd8Xy-nXwOhNqRfQiEqHG2WQA_JXlAJNh6bSN-JLKgxH-DiQ0wyqMOI_6B1BzM3oyX-RO4sSfi1fXPgObalRp_dcL4iYDr",
-        "price": "6.36",
+        "price": "6.1",
         "name": "Elf Bot VOX #5735",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/6319?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "262",
         "rarity": "661.27",
-        "ethPerRarity": 0.009617856548762231
+        "ethPerRarity": 0.009224673733875723
     },
     {
         "id": "8150",
@@ -682,12 +682,12 @@
     {
         "id": "5948",
         "image": "https://lh3.googleusercontent.com/7Jjmr3e6q2GWIn-gvpUkAotRc9EzIUCLgTzvqG6CuxUHtfqc7AAqkyJ1ciMNpMwVbaSLS-4THS-6PvZnAsSjFvTaTEe7S-6oeLLI6A",
-        "price": "5.7777",
+        "price": "5.666",
         "name": "Cow VOX #5364",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5948?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "344",
         "rarity": "592.49",
-        "ethPerRarity": 0.0097515569883036
+        "ethPerRarity": 0.009563030599672569
     },
     {
         "id": "7683",
@@ -1320,6 +1320,16 @@
         "ethPerRarity": 0.9861377211766031
     },
     {
+        "id": "3205",
+        "image": "https://lh3.googleusercontent.com/iVf0-IcxhLqoKxNZIsj412_vU2htnFn6r2CAiRSKOMIczCisaq0CMh9DuJhDfR5zujbFvEsLCDqncsU_j-20rWrQIspiQbQknqFLxyA",
+        "price": "4.99",
+        "name": "Factory Worker VOX #2621",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3205?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "697",
+        "rarity": "176.15",
+        "ethPerRarity": 0.028328129435140504
+    },
+    {
         "id": "5017",
         "image": "https://lh3.googleusercontent.com/loSOyhv3DnmX0NQP4nRvtay3q_HG1MoCZ9UmXOnRb0_2kYKvYq_FEJYC20uotcGjk8FsrFeTmV6sYNZOKfxoQMV4kScYLRCgLpfnBJU",
         "price": "5.5",
@@ -1630,6 +1640,16 @@
         "ethPerRarity": 0.040983606557377046
     },
     {
+        "id": "4980",
+        "image": "https://lh3.googleusercontent.com/NINvQgFxP1EPq7ic-JSHjD_PPmyZ2aAiSYWzx9fMdqZH0KzVzP6KgQR-5zEIGWFjBtVXCVPACfojrrWMaaMJ5tEGvQfS4Itlc3iHulQ",
+        "price": "1.29",
+        "name": "Freight Captain VOX #4396",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/4980?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "905",
+        "rarity": "145.19",
+        "ethPerRarity": 0.008884909429024038
+    },
+    {
         "id": "475",
         "image": "https://lh3.googleusercontent.com/2AqRkWtS7MGnO1SdPu4oMgm1p40H14jiPAaaHrw0doURh4SN1G783ylf8igWdzTq79mGxCvbTsAgCRuZuiR455CJAWkoVIFPG00O1mk",
         "price": "1.2",
@@ -1648,6 +1668,16 @@
         "rank": "919",
         "rarity": "144.24",
         "ethPerRarity": 0.013865779256794232
+    },
+    {
+        "id": "4258",
+        "image": "https://lh3.googleusercontent.com/IFUEUr0jqQfbqhYKAurCT-2kZEbe_TUF6_PfmV6_9oSZwnp6X9GJ6-Ug-U6I0-e9oEoD--ash-Ny8bovGjC5vuHdx3MS7OA5umXv",
+        "price": "1.8",
+        "name": "Farmer VOX #3674",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/4258?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "924",
+        "rarity": "144.09",
+        "ethPerRarity": 0.012492192379762648
     },
     {
         "id": "4947",
@@ -1738,6 +1768,16 @@
         "rank": "974",
         "rarity": "138.83",
         "ethPerRarity": 0.012605344666138442
+    },
+    {
+        "id": "2122",
+        "image": "https://lh3.googleusercontent.com/lPXxX47kL1ggYpzxez0eggFsJ3mAsu8_olVo5n-PO9WFUBPV2JducJVA9uAy37KTDB3E8gEQ0sSvnD7InJmknHJywOvPXR9yL6aXeA",
+        "price": "2.8",
+        "name": "Baker VOX #1538",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/2122?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "995",
+        "rarity": "137.11",
+        "ethPerRarity": 0.02042155933192327
     },
     {
         "id": "3251",
@@ -1872,12 +1912,12 @@
     {
         "id": "3031",
         "image": "https://lh3.googleusercontent.com/2_cTvEVypg1nGC4YzqO02elEhwurZxg3vEysI0YGQUtRRLy24jGNlkZA97Pw2J6LFM-9RWZJWRsIFMVFMSSnmeui0OaNCSyxx1uEM90",
-        "price": "1.45",
+        "price": "1.19",
         "name": "Freight Captain VOX #2447",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3031?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "1080",
         "rarity": "132.00",
-        "ethPerRarity": 0.010984848484848484
+        "ethPerRarity": 0.009015151515151514
     },
     {
         "id": "3647",
@@ -1998,6 +2038,16 @@
         "rank": "1151",
         "rarity": "127.73",
         "ethPerRarity": 0.039145071635481095
+    },
+    {
+        "id": "1991",
+        "image": "https://lh3.googleusercontent.com/wCERqMo8-1Wdm32gBYtdeX5ZeKVRTp5wvG_YnhOUg61jKts37pMV78eExFgByHaxPdxlI_2W6U4tl8qp37BHqMZElWWxSC3rTfm0xA",
+        "price": "1.333",
+        "name": "Builder VOX #1407",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1991?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "1160",
+        "rarity": "127.08",
+        "ethPerRarity": 0.010489455461126848
     },
     {
         "id": "4352",
@@ -2288,6 +2338,16 @@
         "rank": "1362",
         "rarity": "116.48",
         "ethPerRarity": 0.042925824175824176
+    },
+    {
+        "id": "1346",
+        "image": "https://lh3.googleusercontent.com/ZmzdMHsxS6mkOr6Vu5Z0KDlYLDTBiUcPAR835o7I09gw6WSm6bR0chXh6LF_xUaixwkJlyzCkxv6-TtF6cPbQIyFO-znq7NkiGKm",
+        "price": "0.89",
+        "name": "Boat Captain VOX #762",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1346?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "1370",
+        "rarity": "116.17",
+        "ethPerRarity": 0.007661186192648705
     },
     {
         "id": "8866",
@@ -2662,12 +2722,12 @@
     {
         "id": "7987",
         "image": "https://lh3.googleusercontent.com/qduL2PkdVzbDfiRKHpLesU980JAMAh_zamVxbzNVlRKhVKwr1u62i1W-Yj9jiKegYrPbZSo7VlbGTdji7o9xn2kG_XRlbinWhukBYlQ",
-        "price": "0.8444",
+        "price": "0.844",
         "name": "Trucker VOX #7403",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7987?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "1657",
         "rarity": "106.51",
-        "ethPerRarity": 0.007927894094451226
+        "ethPerRarity": 0.007924138578537226
     },
     {
         "id": "1305",
@@ -2720,16 +2780,6 @@
         "ethPerRarity": 0.0237146651489281
     },
     {
-        "id": "5480",
-        "image": "https://lh3.googleusercontent.com/lUGrZwj4-sVpNYqb1iPGyvaCOjfWIUo_DOjXLYw4ELctuBDQBwYYcIRqytftKq2MGsF-CPhWt4iBd4DvMhQDYM0pJ0VztdQPFWXTAw",
-        "price": "4.5",
-        "name": "Miner VOX #4896",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5480?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "1733",
-        "rarity": "104.23",
-        "ethPerRarity": 0.04317375035978125
-    },
-    {
         "id": "6282",
         "image": "https://lh3.googleusercontent.com/q8aO728j-oL-nnsjQOwRLH7s-wXsggaGpjN5Lu4TBiLjYQtk10-69HMULHe4zAPyySeXYRWkrkGz5SdgPM32PcLqtHvji24VbOjKuQ",
         "price": "1",
@@ -2772,12 +2822,12 @@
     {
         "id": "8364",
         "image": "https://lh3.googleusercontent.com/dYeLGpL-ScE9thWY8tPO4o5AOmYck779cEFb8q_l6Tjh4V1QrlsxCa0K34gdymrdzSRVAIFt-Blpu_g8vI_KqpB3g9qAdV5hnKwI7g",
-        "price": "0.8222",
+        "price": "0.822",
         "name": "Chef VOX #7780",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8364?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "1779",
         "rarity": "102.88",
-        "ethPerRarity": 0.007991835147744946
+        "ethPerRarity": 0.007989891135303266
     },
     {
         "id": "1499",
@@ -2888,6 +2938,16 @@
         "rank": "1892",
         "rarity": "100.14",
         "ethPerRarity": 0.009486718593968444
+    },
+    {
+        "id": "2887",
+        "image": "https://lh3.googleusercontent.com/xIlrT_ntV5ZFo_rxQ0oEkKmlL-dP6IlKm98Oj1FQ6X3kQzVgVFkvWkt836O2rr4KV_nZPs0yTgOjQCiH5WTjkeTJvnXvHCvoN4Ew3FY",
+        "price": "2",
+        "name": "Baker VOX #2303",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/2887?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "1903",
+        "rarity": "99.86",
+        "ethPerRarity": 0.02002803925495694
     },
     {
         "id": "6605",
@@ -3032,12 +3092,12 @@
     {
         "id": "8760",
         "image": "https://lh3.googleusercontent.com/Jd_i3VS3wsePmft0yajB0oKJsR_STWkQ5Mo-eWlDhFnSTDeIvfyDZEuBEJkGYDGBWPRAxk5MJj4Hc3pWphHCd6L9OtMylbnkroSa",
-        "price": "0.7488",
+        "price": "0.7487",
         "name": "Chef VOX #8176",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8760?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "2053",
         "rarity": "95.96",
-        "ethPerRarity": 0.007803251354731138
+        "ethPerRarity": 0.007802209253855774
     },
     {
         "id": "2317",
@@ -3058,6 +3118,16 @@
         "rank": "2062",
         "rarity": "95.77",
         "ethPerRarity": 0.00939751487939856
+    },
+    {
+        "id": "5304",
+        "image": "https://lh3.googleusercontent.com/nOq5xWk20DPF-JotpFrjFchJI0ylbXg4XtS6mbPySBAfXfhngFzc7Zy6PDkzqjUFVmHdJHx-uJYOLqwkQai4vUi58gW6cgE-i8gy_A",
+        "price": "0.85",
+        "name": "Weaver VOX #4720",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5304?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "2069",
+        "rarity": "95.63",
+        "ethPerRarity": 0.008888424134685768
     },
     {
         "id": "3975",
@@ -3152,12 +3222,12 @@
     {
         "id": "8762",
         "image": "https://lh3.googleusercontent.com/MB8O1Wnn8Z1Q0e0-fyuN6GvNiFJpwmctuDXAs_X1I1xryjkzUquYNu2yDoaaAmsCaTylJ_QVwE8_AA0lekDRnJyERhNrVhWfIUbA",
-        "price": "0.7444",
+        "price": "0.7443",
         "name": "Chef VOX #8178",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8762?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "2148",
         "rarity": "94.64",
-        "ethPerRarity": 0.007865595942519019
+        "ethPerRarity": 0.007864539306847
     },
     {
         "id": "4952",
@@ -3450,16 +3520,6 @@
         "ethPerRarity": 0.033475145544111067
     },
     {
-        "id": "1226",
-        "image": "https://lh3.googleusercontent.com/OjCGqzkN26bKmAs0eFIN2HkO95aLl-zkA1GWFnsllDy0F3Xro6wD9obxx87rsoRDh8JhbFEWlXwRxZOIy4fW_dJrjb5QL9vH72Dy",
-        "price": "0.63",
-        "name": "Boat Captain VOX #642",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1226?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "2356",
-        "rarity": "89.13",
-        "ethPerRarity": 0.007068327162571525
-    },
-    {
         "id": "7376",
         "image": "https://lh3.googleusercontent.com/YueO8TcX_od1G0fiKw2-vY8wOwzNHNyZ3naP5_VuMxZVXnCG1BL9L2-98z1uRfkxg0aGqhiAc8wbZOi0N7KydsTDXQe9IISRsNGU",
         "price": "5",
@@ -3658,6 +3718,16 @@
         "rank": "2485",
         "rarity": "86.53",
         "ethPerRarity": 0.011441118687160521
+    },
+    {
+        "id": "6783",
+        "image": "https://lh3.googleusercontent.com/Lmt8LxvhoTYDla1se5HMz1tGNBlff6tnwZzVXvlBe7haq4X8EOat0lCvnS4g5xEeuELBefnYvX89Tu6eFwluWpISqcmy0IQsyXu-blg",
+        "price": "1",
+        "name": "Lumberjack VOX #6199",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/6783?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "2493",
+        "rarity": "86.28",
+        "ethPerRarity": 0.011590171534538712
     },
     {
         "id": "2643",
@@ -3890,16 +3960,6 @@
         "ethPerRarity": 0.009052504526252263
     },
     {
-        "id": "8207",
-        "image": "https://lh3.googleusercontent.com/WoiHtrVD-4T7xesipNGFq_XcsTPbw31jx4g4K7SM1H_Cr53VyGKvQIQ5oeF8G-n_5RIWqg_pxP4IqlOmKp3XVWyiOAoqlsQce3g4bV4",
-        "price": "0.6666",
-        "name": "Trucker VOX #7623",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8207?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "2692",
-        "rarity": "82.63",
-        "ethPerRarity": 0.008067287909960063
-    },
-    {
         "id": "914",
         "image": "https://lh3.googleusercontent.com/VcHfMcNUyM4eYw-7nVvWX1Dj_SlOlH7lLENs6BnZC-8y44q8Mf3ww1luIlbS8fl2ZMd1fgzNw5UFr9glqRGsGDwWYpQjIYWRSN1o",
         "price": "0.7788",
@@ -3922,12 +3982,12 @@
     {
         "id": "7940",
         "image": "https://lh3.googleusercontent.com/gZ-ZhC0pOUPCMsPMJnWkkOHE0KiP9lOwHd5PyNfMsI4ZQQd7AwmFNZEwmQ0kponRijN7pLB8IGxyut8QAT3FXd0b8BKDjFDu4beN",
-        "price": "0.6666",
+        "price": "0.6222",
         "name": "Boat Captain VOX #7356",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7940?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "2714",
         "rarity": "82.07",
-        "ethPerRarity": 0.008122334592421104
+        "ethPerRarity": 0.007581333008407457
     },
     {
         "id": "3252",
@@ -4042,12 +4102,12 @@
     {
         "id": "4061",
         "image": "https://lh3.googleusercontent.com/Kh29LwIfObwZ46QGjWCsHou6zGBPvsQRWwLWl7G28tgHXjr5zKDji1fTTgQ4--oysjSI6_MGAfy8RGURbwTlRQLArnu5j1K9W9Q9bQ",
-        "price": "0.6333",
+        "price": "0.633",
         "name": "Baker VOX #3477",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/4061?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "2770",
         "rarity": "81.09",
-        "ethPerRarity": 0.007809840917499074
+        "ethPerRarity": 0.00780614132445431
     },
     {
         "id": "5289",
@@ -4432,12 +4492,12 @@
     {
         "id": "8365",
         "image": "https://lh3.googleusercontent.com/rC-MTFJkkC4hm4FYi16I98wAb45fDMGX8cU24_kSfPJQe2FP-BWgi9-26PDPrPcGaNEktYcmYEVwJdMtbRKbgNZGwc8tmPubbBCoEA",
-        "price": "0.5554",
+        "price": "0.555",
         "name": "Rancher VOX #7781",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8365?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "3035",
         "rarity": "76.14",
-        "ethPerRarity": 0.007294457578145522
+        "ethPerRarity": 0.007289204097714737
     },
     {
         "id": "7086",
@@ -4762,12 +4822,12 @@
     {
         "id": "102",
         "image": "https://lh3.googleusercontent.com/jLlmizAoeoxacNTA5O0tpvzVLEkAE2PNi6wWs4CXJQhKh6zP4OOD6kzXiSm14WFCn4-t4GpPg0flaHxJ5YFbBPrydf3eOI8gbKlmzA",
-        "price": "0.5333",
+        "price": "0.533",
         "name": "Rancher VOX #8406",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/102?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "3246",
         "rarity": "72.11",
-        "ethPerRarity": 0.007395645541533768
+        "ethPerRarity": 0.007391485230897241
     },
     {
         "id": "7895",
@@ -5032,12 +5092,12 @@
     {
         "id": "7379",
         "image": "https://lh3.googleusercontent.com/jjbgx-jCQQ0MkNc4HjS4cifToCCQGXPLYsFfY7bx11feOfQk6fcLebVSpRewe477JIlgSSy2Lum8T3ps4ZWPJiNtBKBpfHsBs2_4",
-        "price": "0.5",
+        "price": "0.44",
         "name": "Builder VOX #6795",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/7379?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "3417",
         "rarity": "69.48",
-        "ethPerRarity": 0.007196315486470926
+        "ethPerRarity": 0.0063327576280944155
     },
     {
         "id": "5638",
@@ -5178,16 +5238,6 @@
         "rank": "3479",
         "rarity": "68.55",
         "ethPerRarity": 0.010211524434719182
-    },
-    {
-        "id": "3765",
-        "image": "https://lh3.googleusercontent.com/ojyXIRdPbOLPIihoJMfLVLnd7A9bj1tHKWXULqNx4dufHbZFr_YD8diRWDSTdnI8tOKKX10vEnCmQP2mkMQqi4IO8PhQBFqV_2FjGQ",
-        "price": "0.45",
-        "name": "Boat Captain VOX #3181",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3765?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "3485",
-        "rarity": "68.46",
-        "ethPerRarity": 0.006573181419807187
     },
     {
         "id": "3294",
@@ -5602,12 +5652,12 @@
     {
         "id": "4984",
         "image": "https://lh3.googleusercontent.com/3fmyXB5Q6ee2SY-J6CUEF4i8OdkQ4RiXyXZ2Z5pT1AfdapGSwNUMpAEBm1wY-iXgNkqTe20VC60bf8sc7libz98KLIL83RElJQoconU",
-        "price": "0.53",
+        "price": "0.49",
         "name": "Rancher VOX #4400",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/4984?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "3767",
         "rarity": "65.53",
-        "ethPerRarity": 0.008087898672363803
+        "ethPerRarity": 0.007477491225392949
     },
     {
         "id": "5477",
@@ -5752,12 +5802,12 @@
     {
         "id": "8031",
         "image": "https://lh3.googleusercontent.com/w-InpOyikqko7wXzrVg4ShW7WMi7HAeW_tsWKvkHVBI7ofZb4-3HnxN5ZHt0TiCjT482-D-uLbNOc0t5wyD4vpqi4RujxoWEO9Pc",
-        "price": "0.48",
+        "price": "0.44",
         "name": "Lumberjack VOX #7447",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8031?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "3898",
         "rarity": "64.38",
-        "ethPerRarity": 0.007455731593662629
+        "ethPerRarity": 0.006834420627524076
     },
     {
         "id": "6696",
@@ -6182,12 +6232,12 @@
     {
         "id": "1347",
         "image": "https://lh3.googleusercontent.com/HLCWXdIZztyb9_C6Sp6pPJugXyKeS46bit4qXKk2ZpeJyJrYfP5akP4WJznngTEXargiG3hcZBIJk4fYdKh9AYj_IZ6kf_dzdKIXNcM",
-        "price": "0.51",
+        "price": "0.469",
         "name": "Rancher VOX #763",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1347?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "4156",
         "rarity": "62.56",
-        "ethPerRarity": 0.008152173913043478
+        "ethPerRarity": 0.007496803069053708
     },
     {
         "id": "6482",
@@ -6272,12 +6322,12 @@
     {
         "id": "6005",
         "image": "https://lh3.googleusercontent.com/dI6Gz-ILWiBQhZpoe0wjGeWwt2E2XBrBBUmhwc7cjFHONXuYRmwYR9Y1IS7uQfiRjlu_AorEEpSF-VFiTaBNStmGKRMO5YMQ5hHW",
-        "price": "0.499",
+        "price": "0.469",
         "name": "Miller VOX #5421",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/6005?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "4251",
         "rarity": "61.80",
-        "ethPerRarity": 0.00807443365695793
+        "ethPerRarity": 0.007588996763754045
     },
     {
         "id": "1109",
@@ -6470,6 +6520,16 @@
         "ethPerRarity": 0.013168724279835392
     },
     {
+        "id": "6764",
+        "image": "https://lh3.googleusercontent.com/jZm2-3V82llG0F_wWz6jxQk3IkSEsie4HnUV7RKyZvBhZu-yEQIOj2HdSDf_qBN6ZZSSv8ghiEm8p7QIoNr6_t_Gie8DJspnWNYP",
+        "price": "0.9",
+        "name": "Farmer VOX #6180",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/6764?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "4429",
+        "rarity": "60.68",
+        "ethPerRarity": 0.014831905075807516
+    },
+    {
         "id": "4226",
         "image": "https://lh3.googleusercontent.com/1EpuxNtuCZe4Lh8CD2MjZsNfc_7wxH8R-w1JkAArgHNO_wcRiKAbiMr2Se-57olqMA_5dq64HjEMbh7YZV9d8DyRgf3XewHUD3UzPw",
         "price": "0.55",
@@ -6552,12 +6612,12 @@
     {
         "id": "3071",
         "image": "https://lh3.googleusercontent.com/aBlL1tywOaf3wUu7su4AuhT6_QgNaNW4kvshGMEqGJAfeJ0kuzfNUXTFr0gW01V671zUMpEQ68MoNNyKn92Y3o6VXtOnLgptrLAc",
-        "price": "0.475",
+        "price": "0.459",
         "name": "Builder VOX #2487",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3071?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "4474",
         "rarity": "60.38",
-        "ethPerRarity": 0.007866843325604504
+        "ethPerRarity": 0.0076018549188473
     },
     {
         "id": "5363",
@@ -6578,16 +6638,6 @@
         "rank": "4491",
         "rarity": "60.31",
         "ethPerRarity": 0.009948598905654119
-    },
-    {
-        "id": "58",
-        "image": "https://lh3.googleusercontent.com/SHL2b9p9MxMh_oXxPIumcD0LRCoIwpFK3_VdohkHk6-wholUuqt2cJQrfr5dPm5KN2OxptW0kmPl4hwI3roenAJC0Xqsl1YQ0ljdv_M",
-        "price": "0.69",
-        "name": "Rancher VOX #8362",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/58?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "4493",
-        "rarity": "60.30",
-        "ethPerRarity": 0.011442786069651741
     },
     {
         "id": "859",
@@ -6682,12 +6732,12 @@
     {
         "id": "1073",
         "image": "https://lh3.googleusercontent.com/d_XrJIN5OrsHOnS64k_cq31nFP7OooK3LEmdH401NOuuF9RWB0zUlDVayCAuwv9ETdFbyrOgExfPZV9VuE6P0pTZepo3i9AfLL2UPao",
-        "price": "0.472",
+        "price": "0.449",
         "name": "Builder VOX #489",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1073?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "4610",
         "rarity": "59.48",
-        "ethPerRarity": 0.007935440484196369
+        "ethPerRarity": 0.007548755884330868
     },
     {
         "id": "4018",
@@ -7062,12 +7112,12 @@
     {
         "id": "8222",
         "image": "https://lh3.googleusercontent.com/Ind3oadmSAuHZRF_F6dnl6XOuB_t3hy6M1j1vxL5Ma4gJPfsUehoVty7yzuycUxj0dO1ZZ4A0rgAehv-Dehf4JFE1HPLeLfmPXfhuQ",
-        "price": "0.4443",
+        "price": "0.4333",
         "name": "Lumberjack VOX #7638",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/8222?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "4889",
         "rarity": "57.92",
-        "ethPerRarity": 0.00767092541436464
+        "ethPerRarity": 0.007481008287292818
     },
     {
         "id": "4074",
@@ -7940,16 +7990,6 @@
         "ethPerRarity": 0.018042646254784037
     },
     {
-        "id": "3644",
-        "image": "https://lh3.googleusercontent.com/eHJc4nflo4G3H4thsPhd3audV-FBrGHprp8OU2oXWkR-pysno7-eFhQdOhnvN-NFfwkbCLBMZ5EfjieF9rw8rjNPogoahnXwQPkt",
-        "price": "20",
-        "name": "Factory Worker VOX #3060",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3644?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5654",
-        "rarity": "54.84",
-        "ethPerRarity": 0.3646973012399708
-    },
-    {
         "id": "8405",
         "image": "https://lh3.googleusercontent.com/CkNsZALpt_Oknt3iX-I7gBilPKT0W0P18V2_ZBgC0Ds2JSDSs0aiMenpgAYJ6KSTkf876UsjthZioPHgMUNYtdBG6l9sswXorMTNXA",
         "price": "5",
@@ -8210,6 +8250,16 @@
         "ethPerRarity": 0.03246275519588008
     },
     {
+        "id": "71",
+        "image": "https://lh3.googleusercontent.com/4Ux0exa3xUFWbBQD5jxDWfMsig579OX4c21-sCZPHt23viavj99NBC6z_JCYux19SDqYqkw_569VBb5A377KtfRdpornr7uGq06XQZI",
+        "price": "0.5",
+        "name": "Boat Captain VOX #8375",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/71?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "5811",
+        "rarity": "54.36",
+        "ethPerRarity": 0.00919793966151582
+    },
+    {
         "id": "3933",
         "image": "https://lh3.googleusercontent.com/d_Gv3vHwfglDzPWaRpqtkF8vrBIQjJyLWQ4-34cps1e7YNpSq2_K0hjKF8LciOwBz-0m0n0CffF-g5zvK02R5J2mye2wPzyhNgKg0Wo",
         "price": "0.8",
@@ -8268,16 +8318,6 @@
         "rank": "5904",
         "rarity": "54.07",
         "ethPerRarity": 0.009247272054743851
-    },
-    {
-        "id": "6735",
-        "image": "https://lh3.googleusercontent.com/5SergwrDCS0dyFCZVehUnGX2xLI9ddW2Qpt6TJHKF9yUXh88lcDJiSWUTWnW61trCarFdxsAY95beJUM7xoBm010_bDRkSRuJGJPvg",
-        "price": "0.38",
-        "name": "Boat Captain VOX #6151",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/6735?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "5915",
-        "rarity": "54.04",
-        "ethPerRarity": 0.007031828275351592
     },
     {
         "id": "8641",
@@ -8880,6 +8920,16 @@
         "ethPerRarity": 0.17146123071061153
     },
     {
+        "id": "151",
+        "image": "https://lh3.googleusercontent.com/yXWpORIxJMu5WGRiMUg42arTy6FETGDJqaty1xCSAbtLTnTqSd9vIQs_SbxxDSM33FkekaVmc94dNGHxZo5o-D42XWVh8HpPkSoEpg",
+        "price": "2.5",
+        "name": "Rancher VOX #8455",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/151?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "6357",
+        "rarity": "52.48",
+        "ethPerRarity": 0.04763719512195122
+    },
+    {
         "id": "4673",
         "image": "https://lh3.googleusercontent.com/3W1e20j8bOAGMWrlkqdSD6HPyk9Hi_syHFPg7P1l5evWRLFboUbZOX0h2NehNHR-XGHVHVGtHYVs6gLqehkabecsC7h4lBt00xlYqQ",
         "price": "0.45",
@@ -9100,6 +9150,16 @@
         "ethPerRarity": 0.028808971384377418
     },
     {
+        "id": "5478",
+        "image": "https://lh3.googleusercontent.com/m9vDLJgENG7kdqOo3jBWnRhE-eEqNtMjmo_zzfxJVc2_A9bsBrRw5HV3GsdJbJheazKKLm610VHMFdt3f0i_oZhmOKXdXx6V_1mZ0w",
+        "price": "1.5",
+        "name": "Boat Captain VOX #4894",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5478?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "6588",
+        "rarity": "51.68",
+        "ethPerRarity": 0.029024767801857584
+    },
+    {
         "id": "2901",
         "image": "https://lh3.googleusercontent.com/7uE_klPG8oYlrwcBttOQm_sO6bi30EPfB8Wxe_7VIXB_19PQsOWWx9D0Ne3Tif9bz3CdTsbxIStKFDr7REx4hNIGKM83b64u9xG5",
         "price": "0.43",
@@ -9288,16 +9348,6 @@
         "rank": "6673",
         "rarity": "51.38",
         "ethPerRarity": 0.009731413001167769
-    },
-    {
-        "id": "3869",
-        "image": "https://lh3.googleusercontent.com/ME0wx_iWHRIe0zC3jMt0Plwmhi4ySCJOjMQUdL28-ukXqinhY3gjjYOfmGNGOUrmZufziKpIsOal9XJReNnUUrCarxSrTRcM-O14Pm0",
-        "price": "1.3",
-        "name": "Lumberjack VOX #3285",
-        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3869?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
-        "rank": "6674",
-        "rarity": "51.37",
-        "ethPerRarity": 0.025306599182402183
     },
     {
         "id": "8063",
@@ -9812,12 +9862,12 @@
     {
         "id": "3529",
         "image": "https://lh3.googleusercontent.com/TAM7iu2fn96XL2Z84KBbhXyqtswGwzMcPxvnuaA1CFj6CQtwDFufKn154fZjKv6AIUmowx-eyE7t5YxvHqAecx3R57M1Use5eydpjIc",
-        "price": "0.399",
+        "price": "0.389",
         "name": "Rancher VOX #2945",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3529?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "7062",
         "rarity": "50.04",
-        "ethPerRarity": 0.007973621103117506
+        "ethPerRarity": 0.007773780975219824
     },
     {
         "id": "2322",
@@ -11280,6 +11330,16 @@
         "ethPerRarity": 0.021340162185232606
     },
     {
+        "id": "2372",
+        "image": "https://lh3.googleusercontent.com/gAhGKggpC4N6UVRY1LqKmvUYVHKFtCN28LZRzcDDYYQO2aoCtuEV1Q_1bPqOdbOMC9pwRxIS6lyU_k8OfMoB_d5NRC35ylstr7TRag",
+        "price": "0.3888",
+        "name": "Lumberjack VOX #1788",
+        "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/2372?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
+        "rank": "7989",
+        "rarity": "46.86",
+        "ethPerRarity": 0.008297055057618437
+    },
+    {
         "id": "6679",
         "image": "https://lh3.googleusercontent.com/QpNmvAvTwf6_yJz0NOwxIpiyeLiZF5v0pqnTlqXusnK5ybSAGQFeZ_S-dVWATAjCPPGQgJLUp16gb-EyRdnRP5V_e1uoolKNDcTjPA",
         "price": "1.5",
@@ -11391,9 +11451,9 @@
     },
     {
         "id": "1655",
-        "image": "https://lh3.googleusercontent.com/Dr3Z8SImnMOXB3FA-vLWcQQ6kwq7K12G_Z1YRg63wb0MVCJ6piR3rFk8omqyJcrcKXjU5tj0QPq3hkXwbmXOuvv6-260o8cLvk384W4",
+        "image": "https://rarity.tools/white.png",
         "price": "0.8",
-        "name": "Farmer VOX #1071",
+        "name": "Vox Collectibles #1071",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/1655?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8051",
         "rarity": "46.56",
@@ -11401,9 +11461,9 @@
     },
     {
         "id": "2017",
-        "image": "https://lh3.googleusercontent.com/MWip_pS7l0XjzFL26aTa7N5nAVDlcHQd7ZQwe-AYvPHxDntKhu0KOHATruYRUbV-cbJTWo1rkrUWCxSgxtQurcumupoQR0LN8WOKUQ",
+        "image": "https://rarity.tools/white.png",
         "price": "0.7",
-        "name": "Factory Worker VOX #1433",
+        "name": "Vox Collectibles #1433",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/2017?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8057",
         "rarity": "46.54",
@@ -11411,9 +11471,9 @@
     },
     {
         "id": "398",
-        "image": "https://lh3.googleusercontent.com/zJPx3X_9B8HofIY9v8pDQ-OwhPPH5sZ0xSDqEztfUHti1Tn8N05OuCsO3nU439E-5DAuhUDNy6JpA4URdPUelXYtMVeQlB8tLeOHLQ",
+        "image": "https://rarity.tools/white.png",
         "price": "0.65",
-        "name": "Factory Worker VOX #8702",
+        "name": "Vox Collectibles #8702",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/398?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8071",
         "rarity": "46.47",
@@ -11421,9 +11481,9 @@
     },
     {
         "id": "5158",
-        "image": "https://lh3.googleusercontent.com/R7GmRHrmwF6tPSLIeYv7ecpdNw9M2ZkkBVPrGeP0w3KojFfungsWDFEY3fDZ-fXVhAOMGbHlMYniyvLM2GZhDt2zc8FrSz9FKrbC3kA",
+        "image": "https://rarity.tools/white.png",
         "price": "0.45",
-        "name": "Miller VOX #4574",
+        "name": "Vox Collectibles #4574",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5158?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8085",
         "rarity": "46.42",
@@ -11431,9 +11491,9 @@
     },
     {
         "id": "5609",
-        "image": "https://lh3.googleusercontent.com/OcSab1IvA4Xv7WazjBbT9jHLMWP4YMcrUH5pPSFDS6OpFsd24bmZCXDXnn0QLjDqzWOC7luL8j2aAakVXOPVLCI8QZRRgDzd-nsdif4",
+        "image": "https://rarity.tools/white.png",
         "price": "0.44",
-        "name": "Farmer VOX #5025",
+        "name": "Vox Collectibles #5025",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5609?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8087",
         "rarity": "46.42",
@@ -11682,12 +11742,12 @@
     {
         "id": "3958",
         "image": "https://lh3.googleusercontent.com/YCd0YYi9Q4uUMqo-nBEYGMFhZFCP3R0oH53QOic43mCEJBHteTy55_RJwkSy97-ZkwMmJXOUtoie7XSVZgn4At8D-HNX1SzGFW4e",
-        "price": "0.3992",
+        "price": "0.3988",
         "name": "Boat Captain VOX #3374",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/3958?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8223",
         "rarity": "45.75",
-        "ethPerRarity": 0.008725683060109289
+        "ethPerRarity": 0.008716939890710382
     },
     {
         "id": "5862",
@@ -12792,12 +12852,12 @@
     {
         "id": "5507",
         "image": "https://lh3.googleusercontent.com/k87L2oZHZ8JcNtvb8MxuCintZ5gjIcIaIO0vFJEZRDqu83KTa6LUIRBq108A1PXai82TNMM6u-ioKQqBjTNXWBiZjTkOrcFsuJnnag",
-        "price": "0.5111",
+        "price": "0.5062",
         "name": "Miller VOX #4923",
         "opensea": "https://opensea.io/assets/0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c/5507?ref=0x5c5321ae45550685308a405827575e3d6b4a84aa",
         "rank": "8809",
         "rarity": "39.18",
-        "ethPerRarity": 0.013044920877998979
+        "ethPerRarity": 0.012919857069933639
     },
     {
         "id": "8367",
