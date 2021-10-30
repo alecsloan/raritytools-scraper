@@ -9,15 +9,20 @@ import * as Theme from "./Theme/index"
 import backupNFTs from "./data/VOX.json";
 import voxRarity from "./data/VOX-rarity.json";
 import {ThumbUp} from "@mui/icons-material";
+import {useSnackbar} from "notistack";
 
 function App() {
   const minuteCooldown = 10;
 
-  const [theme, setTheme] = useState(Theme.dark)
+  const {enqueueSnackbar} = useSnackbar()
+
   const [nfts, setNFTs] = useState(JSON.parse(localStorage.getItem("nfts")) || backupNFTs)
+  const [theme, setTheme] = useState(Theme.dark)
   const [theyUnderstand, setTheyUnderstand] = useState(localStorage.getItem("theyUnderstand"))
 
   const getNFTs = useCallback(async () => {
+    enqueueSnackbar(`Trying to update data: ${new Date().toLocaleString('en-US')}`, { variant: 'info' })
+
     let openseaAPIURLs = []
 
     for (let offset = 0; offset < 8888; offset += 50) {
@@ -60,7 +65,9 @@ function App() {
 
     localStorage.setItem("dataUpdated", new Date().getTime())
     localStorage.setItem("nfts", JSON.stringify(nfts))
-  }, [nfts])
+
+    enqueueSnackbar(`Data Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
+  }, [nfts, enqueueSnackbar])
 
   useEffect(() => {
     const dataUpdated = localStorage.getItem("dataUpdated")
@@ -68,22 +75,25 @@ function App() {
     if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) > minuteCooldown)) {
       getNFTs()
     }
-  }, [setNFTs, getNFTs])
+    else {
+      enqueueSnackbar(`Data was last updated: ${new Date(Number(dataUpdated)).toLocaleString('en-US')}`, { variant: 'info' })
+    }
+  }, [enqueueSnackbar, getNFTs, setNFTs])
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
 
-      <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
+        <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
 
-      <Statistics nfts={nfts} />
+        <Statistics nfts={nfts} />
 
-      <Grid container>
-        <Grid item lg={1} sm={0} />
-        <Grid item lg={10} sm={12}>
-          <NFTGraphDisplayController nfts={nfts} />
+        <Grid container>
+          <Grid item lg={1} sm={0} />
+          <Grid item lg={10} sm={12}>
+            <NFTGraphDisplayController nfts={nfts} />
+          </Grid>
         </Grid>
-      </Grid>
 
       <NFTTable nfts={nfts} theme={theme} />
 
