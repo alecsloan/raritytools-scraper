@@ -1,9 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import {Alert, AppBar, Box, CircularProgress, Grid, IconButton, Snackbar, Toolbar, Typography} from "@mui/material";
+import {
+  Alert,
+  AppBar,
+  Box,
+  Button,
+  CircularProgress,
+  Grid,
+  IconButton,
+  Snackbar,
+  Toolbar,
+  Typography
+} from "@mui/material";
 import {Brightness2, Brightness7, LocalGasStation, Refresh, ThumbUp} from "@mui/icons-material";
 
 import * as Theme from "../Theme/index"
-import {LoadingButton} from "@mui/lab";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -88,19 +98,22 @@ function Header (props) {
           <Grid item xs={6} />
 
           <Grid item xs={3}>
-            <LoadingButton
+            <Button
+              href="https://gasgas.io/"
               style={{
-                height: "100%"
+                backgroundColor: "#212121",
+                borderRadius: "4px",
+                float: "right",
+                height: "80%",
+                padding: "12px 16px"
               }}
-              loading={!gas}
               loadingIndicator="Loading..."
-              onClick={() => window.open('https://gasgas.io/', "_blank")}
               size="large"
               startIcon={<LocalGasStation/>}
-              variant="outlined"
+              variant="contained"
             >
               {gas.standard ? (gas.standard * .000000001).toFixed(0) : "---"}
-            </LoadingButton>
+            </Button>
           </Grid>
         </Grid>
       </Toolbar>
