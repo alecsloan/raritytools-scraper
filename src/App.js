@@ -1,5 +1,5 @@
-import {CssBaseline, Grid, ThemeProvider} from "@mui/material";
-import {useCallback, useEffect, useState} from "react";
+import {Alert, CssBaseline, Grid, IconButton, Snackbar, ThemeProvider} from "@mui/material";
+import React, {useCallback, useEffect, useState} from "react";
 
 import Header from "./Components/Header";
 import NFTTable from "./Components/NFTTable";
@@ -8,12 +8,14 @@ import Statistics from "./Components/Statistics";
 import * as Theme from "./Theme/index"
 import backupNFTs from "./data/VOX.json";
 import voxRarity from "./data/VOX-rarity.json";
+import {ThumbUp} from "@mui/icons-material";
 
 function App() {
   const minuteCooldown = 10;
 
   const [theme, setTheme] = useState(Theme.dark)
   const [nfts, setNFTs] = useState(JSON.parse(localStorage.getItem("nfts")) || backupNFTs)
+  const [theyUnderstand, setTheyUnderstand] = useState(localStorage.getItem("theyUnderstand"))
 
   const getNFTs = useCallback(async () => {
     let openseaAPIURLs = []
@@ -84,6 +86,30 @@ function App() {
       </Grid>
 
       <NFTTable nfts={nfts} theme={theme} />
+
+      <Snackbar
+        key={"understand"}
+        open={!theyUnderstand}
+      >
+        <Alert
+          action={
+            <IconButton
+              aria-label="got-it"
+              color="inherit"
+              onClick={() => {
+                localStorage.setItem("theyUnderstand", true)
+                setTheyUnderstand(true)
+              }}
+              size="small"
+            >
+              <ThumbUp />
+            </IconButton>
+          }
+          severity='info'
+        >
+          This is a community project and not affiliated with Gala Games.
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 }

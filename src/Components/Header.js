@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import {
-  Alert,
   AppBar,
   Box,
   Button,
   CircularProgress,
   Grid,
   IconButton,
-  Snackbar,
   Toolbar,
   Typography
 } from "@mui/material";
-import {Brightness2, Brightness7, LocalGasStation, Refresh, ThumbUp} from "@mui/icons-material";
+import {Brightness2, Brightness7, LocalGasStation, Refresh} from "@mui/icons-material";
 
 import * as Theme from "../Theme/index"
 
@@ -40,7 +38,6 @@ function CircularProgressWithLabel(props) {
 }
 
 function Header (props) {
-  const [theyUnderstand, setTheyUnderstand] = useState(localStorage.getItem("theyUnderstand"))
   const [gas, setGas] = useState(false)
 
   const dataUpdated = localStorage.getItem("dataUpdated")
@@ -117,30 +114,6 @@ function Header (props) {
           </Grid>
         </Grid>
       </Toolbar>
-
-      <Snackbar
-        key={"understand"}
-        open={!theyUnderstand}
-      >
-        <Alert
-          action={
-            <IconButton
-              aria-label="got-it"
-              color="inherit"
-              onClick={() => {
-                localStorage.setItem("theyUnderstand", true)
-                setTheyUnderstand(true)
-              }}
-              size="small"
-            >
-              <ThumbUp />
-            </IconButton>
-          }
-          severity='info'
-        >
-          This is a community project and not affiliated with Gala Games.
-        </Alert>
-      </Snackbar>
     </AppBar>
   );
 }
