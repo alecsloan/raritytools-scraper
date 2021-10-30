@@ -38,12 +38,12 @@ export default function Statistics(props) {
       </Paper>
       <Paper elevation={9}>
         <Typography align="center" height="100%">
-          Average <br /> {average.toFixed(6)}
+          Median <br /> {median.toFixed(6)}
         </Typography>
       </Paper>
       <Paper elevation={9}>
         <Typography align="center" height="100%">
-          Median <br /> {median.toFixed(6)}
+          Average <br /> {average.toFixed(6)}
         </Typography>
       </Paper>
     </Box>
