@@ -1,4 +1,4 @@
-import {Alert, CssBaseline, Grid, IconButton, Snackbar, ThemeProvider} from "@mui/material";
+import {CssBaseline, Grid, IconButton, ThemeProvider} from "@mui/material";
 import React, {useCallback, useEffect, useState} from "react";
 
 import Header from "./Components/Header";
@@ -11,14 +11,13 @@ import voxRarity from "./data/VOX-rarity.json";
 import {ThumbUp} from "@mui/icons-material";
 import {useSnackbar} from "notistack";
 
-function App() {
+function App(props) {
   const minuteCooldown = 10;
 
   const {enqueueSnackbar} = useSnackbar()
 
   const [nfts, setNFTs] = useState(JSON.parse(localStorage.getItem("nfts")) || backupNFTs)
   const [theme, setTheme] = useState(Theme.dark)
-  const [theyUnderstand, setTheyUnderstand] = useState(localStorage.getItem("theyUnderstand"))
 
   const getNFTs = useCallback(async () => {
     enqueueSnackbar(`Trying to update data: ${new Date().toLocaleString('en-US')}`, { variant: 'info' })
@@ -70,6 +69,28 @@ function App() {
   }, [nfts, enqueueSnackbar])
 
   useEffect(() => {
+    if (!localStorage.getItem("theyUnderstand")) {
+      enqueueSnackbar('This is a community project and not affiliated with Gala Games.',
+        {
+          action: key =>  {
+            return <IconButton
+              aria-label="got-it"
+              color="inherit"
+              onClick={() => {
+                localStorage.setItem("theyUnderstand", true)
+                props.notistackRef.current.closeSnackbar(key)
+              }}
+              size="small"
+            >
+              <ThumbUp />
+            </IconButton>
+          },
+          persist: true,
+          variant: 'warning'
+        }
+      )
+    }
+
     const dataUpdated = localStorage.getItem("dataUpdated")
 
     if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) > minuteCooldown)) {
@@ -78,7 +99,7 @@ function App() {
     else {
       enqueueSnackbar(`Data was last updated: ${new Date(Number(dataUpdated)).toLocaleString('en-US')}`, { variant: 'info' })
     }
-  }, [enqueueSnackbar, getNFTs, setNFTs])
+  }, [enqueueSnackbar, getNFTs, props.notistackRef, setNFTs])
 
   return (
       <ThemeProvider theme={theme}>
@@ -96,30 +117,6 @@ function App() {
         </Grid>
 
       <NFTTable nfts={nfts} theme={theme} />
-
-      <Snackbar
-        key={"understand"}
-        open={!theyUnderstand}
-      >
-        <Alert
-          action={
-            <IconButton
-              aria-label="got-it"
-              color="inherit"
-              onClick={() => {
-                localStorage.setItem("theyUnderstand", true)
-                setTheyUnderstand(true)
-              }}
-              size="small"
-            >
-              <ThumbUp />
-            </IconButton>
-          }
-          severity='info'
-        >
-          This is a community project and not affiliated with Gala Games.
-        </Alert>
-      </Snackbar>
     </ThemeProvider>
   );
 }

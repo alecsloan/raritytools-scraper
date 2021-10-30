@@ -5,9 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {SnackbarProvider} from "notistack";
 
+const ref = React.createRef();
+
 ReactDOM.render(
-  <SnackbarProvider maxSnack={2}>
-    <App />
+  <SnackbarProvider maxSnack={2} ref={ref}>
+    <App notistackRef={ref} />
   </SnackbarProvider>,
   document.getElementById('root')
 );
