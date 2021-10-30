@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
+import {makeStyles} from "@material-ui/styles";
 import {Dialog, IconButton} from "@mui/material";
 import {Launch} from "@mui/icons-material";
 
 import BaseDataGrid from "./BaseDataGrid";
-import {makeStyles} from "@material-ui/styles";
 
 const styles = makeStyles({
   root: {
@@ -147,65 +147,13 @@ function NFTTable (props) {
     }
   ]
 
-  const[nfts, setNFTs] = useState(props.nfts)
-
-  useEffect(() => {
-    const removePurchasedNFTs = async (nfts) => {
-      let openseaAPIURLs = []
-
-      for (let start = 0; start < nfts.length; start += 30) {
-        let end = start + 30
-
-        if (end > nfts.length) {
-          end = nfts.length
-        }
-
-        let tokenIds = ""
-
-        nfts.slice(start, end).forEach((nft) => {
-          tokenIds += "&token_ids=" + nft.id
-        })
-
-        openseaAPIURLs.push("https://api.opensea.io/api/v1/assets?asset_contract_address=0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c&limit=30&" + tokenIds)
-      }
-
-      let assets = []
-
-      await Promise.all(openseaAPIURLs.map(url => fetch(url)))
-        .then(responses =>
-          Promise.all(responses.map(res => res.json()))
-        ).then(json => {
-          if (json) {
-            return json.forEach(subData => assets = assets.concat(subData.assets.filter(nft => nft.sell_orders)))
-          }
-          else {
-            assets = nfts
-          }
-        }).catch(() =>  {
-          console.log("Failed to connect to Opensea")
-
-          assets = nfts
-        })
-
-      if (assets.length === nfts.length) {
-        setNFTs(nfts)
-
-        return
-      }
-
-      setNFTs(nfts.filter(nft => assets.map(asset => asset.token_id).includes(nft.id)))
-    }
-
-    removePurchasedNFTs(props.nfts)
-  }, [setNFTs, props.nfts])
-
   return (
     <div>
-      {nfts ?
+      {props.nfts ?
         <div className={classes.root}>
           <BaseDataGrid
             columns={columns}
-            rows={nfts}
+            rows={props.nfts}
             theme={props.theme}
           />
         </div>
