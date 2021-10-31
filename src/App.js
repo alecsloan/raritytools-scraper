@@ -1,4 +1,4 @@
-import {CssBaseline, Grid, IconButton, ThemeProvider} from "@mui/material";
+import {Box, CssBaseline, Grid, IconButton, Tab, Tabs, ThemeProvider} from "@mui/material";
 import React, {useCallback, useEffect, useState} from "react";
 
 import Header from "./Components/Header";
@@ -10,14 +10,27 @@ import backupNFTs from "./data/VOX.json";
 import voxRarity from "./data/VOX-rarity.json";
 import {ThumbUp} from "@mui/icons-material";
 import {useSnackbar} from "notistack";
+import SoldNFTTable from "./Components/SoldNFTTable";
+import {TabContext, TabPanel} from "@mui/lab";
 
 function App(props) {
   const minuteCooldown = 10;
+  const dataUpdated = localStorage.getItem("dataUpdated")
+  const cooldownPercent = ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) * 100)
 
   const {enqueueSnackbar} = useSnackbar()
 
+  const [nftTable, setNFTTable] = useState('active')
   const [nfts, setNFTs] = useState(JSON.parse(localStorage.getItem("nfts")) || backupNFTs)
+  const [page, setPage] = useState(0)
+  const [pageSize, setPageSize] = useState(20)
+  const [soldNFTs, setSoldNFTs] = useState([])
+  const [shouldUpdateSoldNFTs, setShouldUpdateSoldNFTs] = useState(false)
   const [theme, setTheme] = useState(Theme.dark)
+
+  function createSoldNFT(ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
+    return { ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
+  }
 
   const getNFTs = useCallback(async () => {
     enqueueSnackbar(`Trying to update data: ${new Date().toLocaleString('en-US')}`, { variant: 'info' })
@@ -68,6 +81,52 @@ function App(props) {
     enqueueSnackbar(`Data Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
   }, [nfts, enqueueSnackbar])
 
+  const getSoldNFTs = useCallback(async () => {
+    let offset = page * pageSize
+
+    if (offset > 10000) {
+      offset = 10000
+    }
+
+    fetch(`https://api.opensea.io/api/v1/events?collection_slug=collectvox&event_type=successful&only_opensea=false&offset=${offset}&limit=${pageSize}`)
+      .then((res) => {
+        return res.json()
+      })
+      .then((json) => {
+        const events = json.asset_events
+
+        if (events.length === 0)
+          return
+
+        setSoldNFTs(
+          events.map((nft) => {
+            const id = nft.asset.token_id
+
+            const vox = voxRarity.find(v => v.id === id)
+            const price = nft.total_price /= Math.pow(10, nft.payment_token.decimals)
+
+            return (
+              createSoldNFT(
+                ['ETH', 'WETH'].includes(nft.payment_token.symbol) ? (price / vox.rarity) : null,
+                id,
+                nft.asset.image_thumbnail_url,
+                nft.asset.name,
+                nft.asset.permalink,
+                price,
+                vox.rank,
+                vox.rarity,
+                nft.payment_token.symbol
+              )
+            )
+          })
+        )
+    }).catch(() =>  {
+      console.log("Failed to connect to Opensea")
+
+      enqueueSnackbar(`Couldn't Get Sold NFTs From Opensea`, { variant: 'error' })
+    })
+  }, [enqueueSnackbar, setSoldNFTs, page, pageSize])
+
   useEffect(() => {
     if (!localStorage.getItem("theyUnderstand")) {
       enqueueSnackbar('This is a community project and not affiliated with Gala Games.',
@@ -91,21 +150,37 @@ function App(props) {
       )
     }
 
-    const dataUpdated = localStorage.getItem("dataUpdated")
-
-    if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) > minuteCooldown)) {
+    if (!dataUpdated || cooldownPercent >= 100) {
       getNFTs()
     }
-    else {
+    else if (nftTable === 'active') {
       enqueueSnackbar(`Data was last updated: ${new Date(Number(dataUpdated)).toLocaleString('en-US')}`, { variant: 'info' })
     }
-  }, [enqueueSnackbar, getNFTs, props.notistackRef, setNFTs])
+
+    if (shouldUpdateSoldNFTs) {
+      getSoldNFTs()
+      setShouldUpdateSoldNFTs(false)
+    }
+  }, [cooldownPercent, dataUpdated, enqueueSnackbar, getNFTs, getSoldNFTs, nftTable, props.notistackRef, setNFTs, shouldUpdateSoldNFTs])
+
+  const handleSoldNFTPageSizeChange = (newValue) => {
+    setPageSize(newValue)
+    setShouldUpdateSoldNFTs(true)
+  }
+
+  const handleNFTTableChange = (event, newValue) => {
+    if (newValue === 'sold') {
+      getSoldNFTs()
+    }
+
+    setNFTTable(newValue)
+  }
 
   return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
+        <Header cooldownPercent={cooldownPercent} getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
 
         <Statistics nfts={nfts} />
 
@@ -116,7 +191,23 @@ function App(props) {
           </Grid>
         </Grid>
 
-      <NFTTable nfts={nfts} theme={theme} />
+        <Box sx={{ margin: "auto", width: '90%' }}>
+          <TabContext value={nftTable}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >
+                <Tab label="Active Listings" value="active" />
+                <Tab label="Sold Listings" value="sold" />
+              </Tabs>
+            </Box>
+            <TabPanel value="active">
+              <NFTTable nfts={nfts} theme={theme} />
+            </TabPanel>
+            <TabPanel value="sold">
+              <SoldNFTTable nfts={soldNFTs} page={page} pageSize={pageSize} setPage={setPage} setPageSize={handleSoldNFTPageSizeChange} theme={theme} />
+            </TabPanel>
+          </TabContext>
+        </Box>
+
     </ThemeProvider>
   );
 }

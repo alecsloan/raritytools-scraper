@@ -42,8 +42,6 @@ function Header (props) {
 
   const dataUpdated = localStorage.getItem("dataUpdated")
 
-  const cooldownPercent = ((new Date().getTime() - dataUpdated) / (props.minuteCooldown * 60000) * 100)
-
   useEffect(
     () => {
       const socket = new WebSocket('wss://gasgas.io/prices')
@@ -76,17 +74,17 @@ function Header (props) {
               aria-label='mode'
               className='p-1 pull-left'
               color='inherit'
-              disabled={dataUpdated && (cooldownPercent < 100)}
+              disabled={dataUpdated && (props.cooldownPercent < 100)}
               onClick={() => {
-                if (cooldownPercent >= 100) {
+                if (props.cooldownPercent >= 100) {
                   props.getNFTs()
                 }
               }}
               title='Refresh Data'
             >
               {
-                (dataUpdated && (cooldownPercent < 100))
-                  ? <CircularProgressWithLabel value={cooldownPercent} />
+                (dataUpdated && (props.cooldownPercent < 100))
+                  ? <CircularProgressWithLabel value={props.cooldownPercent} />
                   : <Refresh />
               }
             </IconButton>
