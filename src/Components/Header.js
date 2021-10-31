@@ -41,6 +41,7 @@ function Header (props) {
   const [gas, setGas] = useState(false)
 
   const dataUpdated = localStorage.getItem("dataUpdated")
+  const cooldownPercent = ((new Date().getTime() - dataUpdated) / (props.minuteCooldown * 60000) * 100)
 
   useEffect(
     () => {
@@ -74,17 +75,17 @@ function Header (props) {
               aria-label='mode'
               className='p-1 pull-left'
               color='inherit'
-              disabled={dataUpdated && (props.cooldownPercent < 100)}
+              disabled={dataUpdated && (cooldownPercent < 100)}
               onClick={() => {
-                if (props.cooldownPercent >= 100) {
+                if (cooldownPercent >= 100) {
                   props.getNFTs()
                 }
               }}
               title='Refresh Data'
             >
               {
-                (dataUpdated && (props.cooldownPercent < 100))
-                  ? <CircularProgressWithLabel value={props.cooldownPercent} />
+                (dataUpdated && (cooldownPercent < 100))
+                  ? <CircularProgressWithLabel value={cooldownPercent} />
                   : <Refresh />
               }
             </IconButton>

@@ -15,8 +15,6 @@ import {TabContext, TabPanel} from "@mui/lab";
 
 function App(props) {
   const minuteCooldown = 10;
-  const dataUpdated = localStorage.getItem("dataUpdated")
-  const cooldownPercent = ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) * 100)
 
   const {enqueueSnackbar} = useSnackbar()
 
@@ -151,7 +149,9 @@ function App(props) {
       )
     }
 
-    if (!dataUpdated || cooldownPercent >= 100) {
+    const dataUpdated = localStorage.getItem("dataUpdated")
+
+    if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) * 100) >= 100) {
       getNFTs()
     }
     else if (nftTable === 'active') {
@@ -162,7 +162,7 @@ function App(props) {
       getSoldNFTs()
       setShouldUpdateSoldNFTs(false)
     }
-  }, [cooldownPercent, dataUpdated, enqueueSnackbar, getNFTs, getSoldNFTs, nftTable, props.notistackRef, setNFTs, shouldUpdateSoldNFTs])
+  }, [enqueueSnackbar, getNFTs, getSoldNFTs, nftTable, props.notistackRef, setNFTs, shouldUpdateSoldNFTs])
 
   const handleSoldNFTPageSizeChange = (newValue) => {
     setPageSize(newValue)
@@ -181,7 +181,7 @@ function App(props) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Header cooldownPercent={cooldownPercent} getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
+        <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
 
         <Statistics nfts={nfts} />
 
