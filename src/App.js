@@ -33,8 +33,6 @@ function App(props) {
   }
 
   const getNFTs = useCallback(async () => {
-    enqueueSnackbar(`Trying to update data: ${new Date().toLocaleString('en-US')}`, { variant: 'info' })
-
     let openseaAPIURLs = []
 
     for (let offset = 0; offset < 8888; offset += 50) {
@@ -50,6 +48,8 @@ function App(props) {
         return json.forEach(subData => assets = assets.concat(subData.assets.filter(nft => (nft.sell_orders && nft.sell_orders[0].payment_token === "0x0000000000000000000000000000000000000000"))))
       }).catch(() =>  {
         console.log("Failed to connect to Opensea")
+
+        enqueueSnackbar(`Couldn't Get Active Listings From Opensea. Using Fallback Data.`, { variant: 'error' })
       })
 
     if (assets.length === 0)
