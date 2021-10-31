@@ -186,8 +186,8 @@ function App(props) {
         <Statistics nfts={nfts} />
 
         <Grid container>
-          <Grid item lg={1} sm={0} />
-          <Grid item lg={10} sm={12}>
+          <Grid item lg={1} xs={false} />
+          <Grid item lg={10} xs={12}>
             <NFTGraphDisplayController nfts={nfts} />
           </Grid>
         </Grid>

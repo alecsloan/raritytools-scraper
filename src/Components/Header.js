@@ -103,7 +103,6 @@ function Header (props) {
                 height: "80%",
                 padding: "12px 16px"
               }}
-              loadingIndicator="Loading..."
               size="large"
               startIcon={<LocalGasStation/>}
               variant="contained"
