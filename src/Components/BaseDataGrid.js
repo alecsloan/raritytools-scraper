@@ -9,15 +9,13 @@ function BaseDataGrid (props) {
   return (
       <DataGrid
         autoHeight
-        columns={props.columns}
         columnBuffer={props.columns.length}
         disableColumnSelector
         disableSelectionOnClick
-        onPageChange={(newPage) => props.setPage(newPage) || setPage(newPage)}
-        onPageSizeChange={(newPageSize) => props.setPageSize(newPageSize) || setPageSize(newPageSize)}
+        onPageChange={(newPage) => setPage(newPage)}
+        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
         page={page}
         pageSize={pageSize}
-        rows={props.rows}
         rowsPerPageOptions={[10, 20, 30, 40, 50]}
         onSortModelChange={(newSortModel, details) => {
           setSortModel(newSortModel);
@@ -29,6 +27,7 @@ function BaseDataGrid (props) {
           width: '80%',
           color: props.theme.palette.mode === "dark" ? 'white' : 'black'
         }}
+        {...props}
       />
   );
 }

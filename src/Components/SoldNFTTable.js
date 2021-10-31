@@ -129,12 +129,11 @@ function SoldNFTTable (props) {
         <div className={classes.root}>
           <BaseDataGrid
             columns={columns}
-            hideFooterPagination
             rows={props.nfts}
+            onPageChange={props.setPage.bind(this)}
+            onPageSizeChange={props.setPageSize.bind(this)}
             page={props.page}
             pageSize={props.pageSize}
-            setPage={props.setPage}
-            setPageSize={props.setPageSize}
             theme={props.theme}
           />
         </div>
