@@ -28,8 +28,8 @@ function App(props) {
   const [shouldUpdateSoldNFTs, setShouldUpdateSoldNFTs] = useState(false)
   const [theme, setTheme] = useState(Theme.dark)
 
-  function createSoldNFT(ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
-    return { ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
+  function createSoldNFT(date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
+    return { date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
   }
 
   const getNFTs = useCallback(async () => {
@@ -107,6 +107,7 @@ function App(props) {
 
             return (
               createSoldNFT(
+                new Date(nft.transaction.timestamp).toLocaleString('en-US', { month: "short", day: "numeric", hour: "numeric", minute: "numeric"}),
                 ['ETH', 'WETH'].includes(nft.payment_token.symbol) ? (price / vox.rarity) : null,
                 id,
                 nft.asset.image_thumbnail_url,

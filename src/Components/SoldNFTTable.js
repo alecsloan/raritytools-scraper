@@ -67,6 +67,12 @@ function SoldNFTTable (props) {
       width: 180,
     },
     {
+      field: 'date',
+      flex: .5,
+      headerName: 'Date',
+      type: 'date'
+    },
+    {
       field: 'ethPerRarity',
       flex: .5,
       headerName: 'ETH/Rarity',
