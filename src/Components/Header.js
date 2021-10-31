@@ -16,7 +16,7 @@ import * as Theme from "../Theme/index"
 function CircularProgressWithLabel(props) {
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
+      <CircularProgress style={{ color: '#2d365c'}} variant="determinate" {...props} />
       <Box
         sx={{
           top: 0,
@@ -29,7 +29,7 @@ function CircularProgressWithLabel(props) {
           justifyContent: 'center',
         }}
       >
-        <Typography variant="caption" component="div" color="text.secondary">
+        <Typography variant="caption" component="div" color="#fff">
           {`${Math.round(props.value)}%`}
         </Typography>
       </Box>
@@ -97,11 +97,12 @@ function Header (props) {
             <Button
               href="https://gasgas.io/"
               style={{
-                backgroundColor: "#212121",
+                backgroundColor: "#2d365c",
                 borderRadius: "4px",
                 float: "right",
                 height: "80%",
-                padding: "12px 16px"
+                padding: "12px 16px",
+                marginTop: '5px'
               }}
               size="large"
               startIcon={<LocalGasStation/>}

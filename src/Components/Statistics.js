@@ -23,6 +23,9 @@ export default function Statistics(props) {
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
+        '& > div:not(style)': {
+          borderColor: '#6f7acd'
+        },
         '& > :not(style)': {
           borderLeft: 4,
           m: 2,

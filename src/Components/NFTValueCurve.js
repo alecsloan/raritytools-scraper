@@ -22,7 +22,7 @@ function NFTValueCurve (props) {
       {
         label: 'VOX Rarity vs Price',
         data: uniqueNFTs.map(nft => { return { x: nft.price, y: nft.rarity, label: nft.name} }),
-        backgroundColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: '#6f7acd',
       },
     ],
   };

@@ -4,14 +4,14 @@ export const dark = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#212121',
+      default: '#141722',
       paper: colors.grey[800]
     },
     primary: {
-      main: colors.grey[900]
+      main: '#2d365c',
     },
     secondary: {
-      main: colors.red[300]
+      main: '#6f7acd',
     }
   }
 })
