@@ -24,7 +24,6 @@ function BaseDataGrid (props) {
         style={{
           margin: 'auto',
           marginTop: '50px',
-          width: '80%',
           color: props.theme.palette.mode === "dark" ? 'white' : 'black'
         }}
         {...props}

@@ -1,4 +1,4 @@
-import {Box, CssBaseline, Grid, IconButton, Tab, Tabs, ThemeProvider} from "@mui/material";
+import {Box, CssBaseline, IconButton, Tab, Tabs, ThemeProvider} from "@mui/material";
 import React, {useCallback, useEffect, useState} from "react";
 
 import Header from "./Components/Header";
@@ -185,14 +185,9 @@ function App(props) {
 
         <Statistics nfts={nfts} />
 
-        <Grid container>
-          <Grid item lg={1} xs={false} />
-          <Grid item lg={10} xs={12}>
-            <NFTGraphDisplayController nfts={nfts} />
-          </Grid>
-        </Grid>
+        <NFTGraphDisplayController nfts={nfts} />
 
-        <Box sx={{ margin: "auto", width: '90%' }}>
+        <Box sx={{ margin: "auto", maxWidth: '1300px', width: '90%' }}>
           <TabContext value={nftTable}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >

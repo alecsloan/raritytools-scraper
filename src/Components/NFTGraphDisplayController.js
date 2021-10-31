@@ -12,7 +12,7 @@ function NFTGraphDisplayController (props) {
   }
 
   return (
-    <Box sx={{ margin: "auto", width: '90%' }}>
+    <Box sx={{ margin: "auto", maxWidth: '1300px', width: '90%' }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs indicatorColor="secondary" onChange={handleChange} value={value} >
