@@ -26,8 +26,8 @@ function App(props) {
   const [shouldUpdateSoldNFTs, setShouldUpdateSoldNFTs] = useState(false)
   const [theme, setTheme] = useState(Theme.dark)
 
-  function createSoldNFT(date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
-    return { date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
+  function createSoldNFT(buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
+    return { buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
   }
 
   const getNFTs = useCallback(async () => {
@@ -102,13 +102,15 @@ function App(props) {
 
             const vox = voxRarity.find(v => v.id === id)
             const price = nft.total_price /= Math.pow(10, nft.payment_token.decimals)
+            const buyer = nft.winner_account.user ? nft.winner_account.user.username : nft.winner_account.address;
 
             return (
               createSoldNFT(
+                buyer,
                 new Date(nft.transaction.timestamp).toLocaleString('en-US', { month: "short", day: "numeric", hour: "numeric", minute: "numeric"}),
                 ['ETH', 'WETH'].includes(nft.payment_token.symbol) ? (price / vox.rarity) : null,
                 id,
-                nft.asset.image_thumbnail_url,
+                nft.asset.image_url,
                 nft.asset.name,
                 nft.asset.permalink,
                 price,

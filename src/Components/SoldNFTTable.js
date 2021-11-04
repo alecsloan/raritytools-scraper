@@ -73,6 +73,26 @@ function SoldNFTTable (props) {
       type: 'date'
     },
     {
+      field: 'buyer',
+      flex: .5,
+      headerName: 'Buyer',
+      renderCell: (params) => (
+        <a
+          href={`https://opensea.io/${params.value}`}
+          rel="noreferrer"
+          style={{
+            color: '#fff',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+          target="_blank"
+        >
+          {params.value}
+        </a>
+      ),
+    },
+    {
       field: 'ethPerRarity',
       flex: .5,
       headerName: 'ETH/Rarity',
