@@ -211,7 +211,7 @@ function MyVOX (props) {
             <Paper elevation={9}>
               <Typography align="center" height="100%">
                 Low <br />
-                {voxValues.low} ETH <br />
+                {voxValues.low.toFixed(2)} ETH <br />
                 {
                   (voxValues.low * ethPrice).toLocaleString(
                     window.navigator.language,
@@ -226,7 +226,7 @@ function MyVOX (props) {
             <Paper elevation={9}>
               <Typography align="center" height="100%">
                 Median <br />
-                {voxValues.median} ETH <br />
+                {voxValues.median.toFixed(2)} ETH <br />
                 {
                   (voxValues.median * ethPrice).toLocaleString(
                     window.navigator.language,
@@ -241,7 +241,7 @@ function MyVOX (props) {
             <Paper elevation={9}>
               <Typography align="center" height="100%">
                 Average <br />
-                {voxValues.average} ETH <br />
+                {voxValues.average.toFixed(2)} ETH <br />
                 {
                   (voxValues.average * ethPrice).toLocaleString(
                     window.navigator.language,
