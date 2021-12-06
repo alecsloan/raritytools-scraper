@@ -12,12 +12,14 @@ import {ThumbUp} from "@mui/icons-material";
 import {useSnackbar} from "notistack";
 import SoldNFTTable from "./Components/SoldNFTTable";
 import {TabContext, TabPanel} from "@mui/lab";
+import MyVOX from "./Components/MyVOX";
 
 function App(props) {
   const minuteCooldown = 10;
 
   const {enqueueSnackbar} = useSnackbar()
 
+  const [account, setAccount] = useState(null)
   const [nftTable, setNFTTable] = useState('active')
   const [nfts, setNFTs] = useState(JSON.parse(localStorage.getItem("nfts")) || backupNFTs)
   const [page, setPage] = useState(0)
@@ -194,11 +196,15 @@ function App(props) {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >
                 <Tab label="Active Listings" value="active" />
+                <Tab label="My VOX" value="mine" />
                 {/*<Tab label="Sold Listings" value="sold" />*/}
               </Tabs>
             </Box>
             <TabPanel value="active">
               <NFTTable nfts={nfts} theme={theme} />
+            </TabPanel>
+            <TabPanel value="mine">
+              <MyVOX account={account} nfts={nfts} setAccount={setAccount.bind(this)} />
             </TabPanel>
             <TabPanel value="sold">
               <SoldNFTTable nfts={soldNFTs} page={page} pageSize={pageSize} setPage={setPage} setPageSize={handleSoldNFTPageSizeChange} theme={theme} />
