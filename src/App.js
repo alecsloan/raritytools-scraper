@@ -194,7 +194,7 @@ function App(props) {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >
                 <Tab label="Active Listings" value="active" />
-                <Tab label="Sold Listings" value="sold" />
+                {/*<Tab label="Sold Listings" value="sold" />*/}
               </Tabs>
             </Box>
             <TabPanel value="active">
