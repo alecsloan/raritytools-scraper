@@ -5,7 +5,7 @@ import NFTValueCurve from "./NFTValueCurve";
 import NFTRarityCurve from "./NFTRarityCurve";
 
 function NFTGraphDisplayController (props) {
-  const [value, setValue] = useState("1")
+  const [value, setValue] = useState("3")
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
