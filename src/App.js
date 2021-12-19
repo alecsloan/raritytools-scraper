@@ -13,6 +13,7 @@ import {useSnackbar} from "notistack";
 import SoldNFTTable from "./Components/SoldNFTTable";
 import {TabContext, TabPanel} from "@mui/lab";
 import MyVOX from "./Components/MyVOX";
+import NFTTableMobile from "./Components/NFTTableMobile";
 
 function App(props) {
   const minuteCooldown = 10;
@@ -189,7 +190,7 @@ function App(props) {
 
         <Statistics nfts={nfts} />
 
-        <NFTGraphDisplayController nfts={nfts} />
+        {window.innerWidth > 480 ? <NFTGraphDisplayController nfts={nfts} /> : null}
 
         <Box sx={{ margin: "auto", maxWidth: '1300px', width: '90%' }}>
           <TabContext value={nftTable}>
@@ -201,7 +202,7 @@ function App(props) {
               </Tabs>
             </Box>
             <TabPanel value="active">
-              <NFTTable nfts={nfts} theme={theme} />
+              {window.innerWidth > 480 ? <NFTTable nfts={nfts} theme={theme} /> : <NFTTableMobile nfts={nfts} theme={theme} />}
             </TabPanel>
             <TabPanel value="mine">
               <MyVOX account={account} nfts={nfts} setAccount={setAccount.bind(this)} />

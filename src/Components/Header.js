@@ -61,7 +61,7 @@ function Header (props) {
     <AppBar position="static">
       <Toolbar>
         <Grid container>
-          <Grid item xs={3}>
+          <Grid item xs={6}>
             <IconButton
               size="large"
               edge="end"
@@ -91,7 +91,7 @@ function Header (props) {
             </IconButton>
           </Grid>
 
-          <Grid item xs={6} />
+          <Grid item xs={3} />
 
           <Grid item xs={3}>
             <Button
