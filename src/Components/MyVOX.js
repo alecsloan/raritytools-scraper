@@ -17,10 +17,6 @@ import WalletConnect from "./WalletConnect";
 function MyVOX (props) {
   const rarityPerEthValues = props.nfts.map(nft => nft.price / nft.rarity)
 
-  const sum = rarityPerEthValues.reduce((sum, val) => (sum += val))
-
-  const average = sum / props.nfts.length
-
   const rarityPerEthSortedValues = rarityPerEthValues.sort()
   
   const low = rarityPerEthSortedValues[0]
@@ -68,16 +64,13 @@ function MyVOX (props) {
 
         let lowTotal = 0
         let medianTotal = 0
-        let averageTotal = 0
 
         assets.sort((a, b) => a.rank - b.rank).forEach(vox => {
           const ethLow = (vox.rarity * low).toFixed(2);
           const ethMedian = (vox.rarity * median).toFixed(2);
-          const ethAverage = (vox.rarity * average).toFixed(2);
 
           lowTotal += Number(ethLow)
           medianTotal += Number(ethMedian)
-          averageTotal += Number(ethAverage)
 
           temp.push(
             <Grid item xs={12} md={6} lg={4} key={vox.token_id}>
@@ -107,7 +100,6 @@ function MyVOX (props) {
                           <TableCell />
                           <TableCell>Low</TableCell>
                           <TableCell>Median</TableCell>
-                          <TableCell>Average</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -115,7 +107,6 @@ function MyVOX (props) {
                           <TableCell>ETH</TableCell>
                           <TableCell>{ethLow}</TableCell>
                           <TableCell>{ethMedian}</TableCell>
-                          <TableCell>{ethAverage}</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>USD</TableCell>
@@ -141,17 +132,6 @@ function MyVOX (props) {
                                 })
                             }
                           </TableCell>
-                          <TableCell>
-                            {
-                              ((vox.rarity * average).toFixed(2) * ethPrice).toLocaleString(
-                                window.navigator.language,
-                                {
-                                  currency: "usd",
-                                  maximumFractionDigits: 0,
-                                  style: "currency"
-                                })
-                            }
-                          </TableCell>
                         </TableRow>
                       </TableBody>
                     </Table>
@@ -169,13 +149,12 @@ function MyVOX (props) {
         setVoxValues({
           low: lowTotal,
           median: medianTotal,
-          average: averageTotal
         })
         setCards(temp)
       })
       .catch(err => console.error(err))
     }
-  }, [average, cards, ethPrice, low, median, props.account, setCards, setEthPrice])
+  }, [cards, ethPrice, low, median, props.account, setCards, setEthPrice])
 
   useEffect(() => {
     getVox()
@@ -229,21 +208,6 @@ function MyVOX (props) {
                 {voxValues.median.toFixed(2)} ETH <br />
                 {
                   (voxValues.median * ethPrice).toLocaleString(
-                    window.navigator.language,
-                    {
-                      currency: "usd",
-                      maximumFractionDigits: 0,
-                      style: "currency"
-                    })
-                }
-              </Typography>
-            </Paper>
-            <Paper elevation={9}>
-              <Typography align="center" height="100%">
-                Average <br />
-                {voxValues.average.toFixed(2)} ETH <br />
-                {
-                  (voxValues.average * ethPrice).toLocaleString(
                     window.navigator.language,
                     {
                       currency: "usd",
