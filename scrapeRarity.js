@@ -1,8 +1,8 @@
 const playwright = require('playwright');
 var fs = require('fs');
 
-const collectionMax = 8888
-const offset = 7728
+const collectionMax = 7859
+const offset = 0
 
 async function scrapeNFTs() {
   console.log("Scrape started: " + new Date().toLocaleTimeString('en-US'))
@@ -15,7 +15,7 @@ async function scrapeNFTs() {
 
   const page = await browser.newPage();
 
-  await page.goto('https://rarity.tools/collectvox');
+  await page.goto('https://rarity.tools/collectvoxmirandus');
 
   await new Promise(function (resolve) {
     setTimeout(resolve, 5000)
@@ -61,10 +61,7 @@ async function scrapeNFTs() {
 
       const id = await page.$eval('div.flex-grow.text-sm.text-right.text-gray-400', div => {
         return div.innerText.replace('ID ', '')
-      }).catch(() => console.log("Failed to get name for NFT"))
-      const name = await page.$eval('div.text-lg.font-bold.text-left.text-pink-700', div => {
-        return div.innerText
-      }).catch(() => console.log("Failed to get name for NFT"))
+      }).catch(() => console.log("Failed to get id for NFT"))
       const rank = await page.$eval('span.font-bold.whitespace-nowrap', span => {
         return span.innerText.replace('Rarity Rank #', '')
       }).catch(() => console.log("Failed to get rank for NFT"))
@@ -74,14 +71,13 @@ async function scrapeNFTs() {
 
       let nft = {
         id: id,
-        name: name,
         rank: rank,
         rarity: rarity,
       }
 
       console.log(nft)
 
-      if ((offset === 0 || (rank > offset)) && (nft.id && nft.name && nft.rank && nft.rarity)) {
+      if ((offset === 0 || (rank > offset)) && (nft.id && nft.rank && nft.rarity)) {
         fs.readFile(fileName, function (err, data) {
           if (!data) {
             data = '[]'
