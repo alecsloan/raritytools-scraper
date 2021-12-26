@@ -91,14 +91,18 @@ function App(props) {
 
     let townStarAssets = await getNFTHelper(townStarOpenseaAPIURLs)
 
-    setTownStarVOX(townStarAssets)
-    localStorage.setItem("townStarVOX", JSON.stringify(townStarAssets))
+    if (townStarAssets) {
+      setTownStarVOX(townStarAssets)
+      localStorage.setItem("townStarVOX", JSON.stringify(townStarAssets))
+    }
 
     if (window.location.href.includes("mirandus-vox")) {
       let mirandusAssets = await getNFTHelper(mirandusOpenseaAPIURLs)
 
-      setMirandusVOX(mirandusAssets.filter(v => v))
-      localStorage.setItem("mirandusVOX", JSON.stringify(mirandusAssets.filter(v => v)))
+      if (mirandusAssets) {
+        setMirandusVOX(mirandusAssets.filter(v => v))
+        localStorage.setItem("mirandusVOX", JSON.stringify(mirandusAssets.filter(v => v)))
+      }
     }
 
     localStorage.setItem("dataUpdated", new Date().getTime())

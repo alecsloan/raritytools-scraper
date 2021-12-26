@@ -1,6 +1,9 @@
 import {Box, Paper, Typography} from "@mui/material";
 
 export default function Statistics(props) {
+  if (!props.nfts) {
+    return
+  }
 
   const rarityPerEthValues = props.nfts.map(nft => nft.price / nft.rarity)
 
