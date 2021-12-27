@@ -244,7 +244,7 @@ function App(props) {
               : null
             }
             <TabPanel value="mine">
-              <MyVOX account={account} nfts={nftTable === 'townStar' ? townStarVOX : mirandusVOX} setAccount={setAccount.bind(this)} />
+              <MyVOX account={account} nfts={townStarVOX} setAccount={setAccount.bind(this)} />
             </TabPanel>
             {/*<TabPanel value="sold">*/}
             {/*  <SoldNFTTable nfts={soldNFTs} page={page} pageSize={pageSize} setPage={setPage} setPageSize={handleSoldNFTPageSizeChange} theme={theme} />*/}
