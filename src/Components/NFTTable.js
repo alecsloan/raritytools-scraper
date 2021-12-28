@@ -118,7 +118,7 @@ function NFTTable (props) {
       renderCell: (params) => (
         <IconButton
           color='inherit'
-          onClick={() => window.open('https://rarity.tools/collectvox/view/' + params.value, "_blank")}
+          onClick={() => window.open(`https://rarity.tools/collectvox${props.isMirandus ? 'mirandus' : ''}/view/${params.value}`, "_blank")}
           style={{
             textAlign: "center"
           }}
