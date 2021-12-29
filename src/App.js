@@ -1,5 +1,5 @@
 import {Box, CssBaseline, IconButton, Tab, Tabs, ThemeProvider} from "@mui/material";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 
 import Header from "./Components/Header";
 import NFTTable from "./Components/NFTTable";
@@ -31,6 +31,10 @@ function App(props) {
   const [shouldUpdateSoldNFTs, setShouldUpdateSoldNFTs] = useState(false)
   const [theme, setTheme] = useState(Theme.dark)
 
+  const relative = useMemo(() => {
+    return new Intl.RelativeTimeFormat('en', { localeMatcher: "best fit", numeric: "always", style: 'long' });
+  }, [])
+
   // function createSoldNFT(buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
   //   return { buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
   // }
@@ -46,7 +50,7 @@ function App(props) {
         }).catch(() =>  {
           console.log("Failed to connect to Opensea")
 
-          enqueueSnackbar(`Couldn't Get Active Listings From Opensea. Using Fallback Data.`, { variant: 'error' })
+          enqueueSnackbar(`Couldn't get active listings from Opensea. Using fallback data.`, { variant: 'error' })
         })
 
     if (assets.length === 0)
@@ -77,38 +81,44 @@ function App(props) {
     })
   }, [enqueueSnackbar])
 
-  const getNFTs = useCallback(async () => {
-    let townStarOpenseaAPIURLs = []
-    let mirandusOpenseaAPIURLs = []
+  const getNFTs = useCallback(async (table = nftTable) => {
+    if (window.location.href.includes("mirandus-vox") && table === "mirandus") {
+      let mirandusOpenseaAPIURLs = []
 
-    for (let offset = 0; offset < 8888; offset += 50) {
-      townStarOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvox`)
-    }
+      for (let offset = 0; offset < 5789; offset += 50) {
+        mirandusOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvoxmirandus`)
+      }
 
-    for (let offset = 0; offset < 5789; offset += 50) {
-      mirandusOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvoxmirandus`)
-    }
-
-    let townStarAssets = await getNFTHelper(townStarOpenseaAPIURLs)
-
-    if (townStarAssets) {
-      setTownStarVOX(townStarAssets)
-      localStorage.setItem("townStarVOX", JSON.stringify(townStarAssets))
-    }
-
-    if (window.location.href.includes("mirandus-vox")) {
       let mirandusAssets = await getNFTHelper(mirandusOpenseaAPIURLs)
 
       if (mirandusAssets) {
         setMirandusVOX(mirandusAssets.filter(v => v))
         localStorage.setItem("mirandusVOX", JSON.stringify(mirandusAssets.filter(v => v)))
+        localStorage.setItem("mirandusDataUpdated", new Date().getTime())
+        enqueueSnackbar(`Mirandus VOX Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
+
+        //Force an update
+        setNFTTable("townStar")
+        setNFTTable("mirandus")
       }
     }
+    else {
+      let townStarOpenseaAPIURLs = []
 
-    localStorage.setItem("dataUpdated", new Date().getTime())
+      for (let offset = 0; offset < 8888; offset += 50) {
+        townStarOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvox`)
+      }
 
-    enqueueSnackbar(`Data Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
-  }, [enqueueSnackbar, getNFTHelper])
+      let townStarAssets = await getNFTHelper(townStarOpenseaAPIURLs)
+
+      if (townStarAssets) {
+        setTownStarVOX(townStarAssets)
+        localStorage.setItem("townStarVOX", JSON.stringify(townStarAssets))
+        localStorage.setItem("dataUpdated", new Date().getTime())
+        enqueueSnackbar(`Town Star VOX Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
+      }
+    }
+  }, [enqueueSnackbar, getNFTHelper, nftTable, setNFTTable])
 
   // const getSoldNFTs = useCallback(async () => {
   //   let offset = page * pageSize
@@ -186,37 +196,48 @@ function App(props) {
 
     const dataUpdated = localStorage.getItem("dataUpdated")
 
-    if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) * 100) >= 100 || (window.location.href.includes("mirandus-vox") && mirandusVOX.length === 0)) {
+    if (!dataUpdated || ((new Date().getTime() - dataUpdated) / (minuteCooldown * 60000) * 100) >= 100) {
       getNFTs()
     }
     else if (nftTable === 'townStar') {
-      enqueueSnackbar(`Data was last updated: ${new Date(Number(dataUpdated)).toLocaleString('en-US')}`, { variant: 'info' })
+      enqueueSnackbar(`Town Star VOX data was last updated about ${relative.format(Math.ceil(-1 * ((new Date().getTime() - dataUpdated) / 60000)), "minute")}`, { variant: 'info' })
     }
 
     if (shouldUpdateSoldNFTs) {
       // getSoldNFTs()
       setShouldUpdateSoldNFTs(false)
     }
-  }, [enqueueSnackbar, getNFTs, mirandusVOX, nftTable, props.notistackRef, setMirandusVOX, setTownStarVOX, shouldUpdateSoldNFTs])
+  }, [enqueueSnackbar, getNFTs, mirandusVOX, nftTable, props.notistackRef, relative, setMirandusVOX, setTownStarVOX, shouldUpdateSoldNFTs])
 
   // const handleSoldNFTPageSizeChange = (newValue) => {
   //   setPageSize(newValue)
   //   setShouldUpdateSoldNFTs(true)
   // }
 
-  const handleNFTTableChange = (event, newValue) => {
+  const handleNFTTableChange = async (event, newValue) => {
     // if (newValue === 'sold') {
     //   getSoldNFTs()
     // }
 
-    setNFTTable(newValue)
+    await setNFTTable(newValue)
+
+    if (newValue === 'mirandus') {
+      const mirandusDataUpdated = localStorage.getItem("mirandusDataUpdated")
+
+      if (window.location.href.includes("mirandus-vox") && (!mirandusDataUpdated || ((new Date().getTime() - mirandusDataUpdated) / (minuteCooldown * 60000) * 100) >= 100)) {
+        getNFTs('mirandus')
+      }
+      else {
+        enqueueSnackbar(`Mirandus VOX data was last updated about ${relative.format(Math.ceil(-1 * ((new Date().getTime() - mirandusDataUpdated) / 60000)), "minute")}`, { variant: 'info' })
+      }
+    }
   }
 
   return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} theme={theme} />
+        <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} table={nftTable} theme={theme} />
 
         <Statistics nfts={nftTable === 'mirandus' ? mirandusVOX : townStarVOX} />
 
@@ -238,7 +259,7 @@ function App(props) {
             {
               window.location.href.includes("mirandus-vox")
                 ? <TabPanel value="mirandus">
-                  {window.innerWidth > 480 ? <NFTTable nfts={mirandusVOX} theme={theme}/> :
+                  {window.innerWidth > 480 ? <NFTTable isMirandus={true} nfts={mirandusVOX} theme={theme}/> :
                       <NFTTableMobile nfts={mirandusVOX} theme={theme}/>}
                 </TabPanel>
               : null

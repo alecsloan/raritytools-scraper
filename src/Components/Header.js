@@ -40,7 +40,12 @@ function CircularProgressWithLabel(props) {
 function Header (props) {
   const [gas, setGas] = useState(false)
 
-  const dataUpdated = localStorage.getItem("dataUpdated")
+  let dataUpdated = localStorage.getItem("dataUpdated")
+
+  if (props.table === 'mirandus') {
+      dataUpdated = localStorage.getItem("mirandusDataUpdated")
+  }
+
   const cooldownPercent = ((new Date().getTime() - dataUpdated) / (props.minuteCooldown * 60000) * 100)
 
   useEffect(
