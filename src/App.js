@@ -11,7 +11,6 @@ import townStarVOXRarity from "./data/VOX-rarity.json";
 import mirandusVOXRarity from "./data/Mirandus-VOX-rarity.json";
 import {ThumbUp} from "@mui/icons-material";
 import {useSnackbar} from "notistack";
-// import SoldNFTTable from "./Components/SoldNFTTable";
 import {TabContext, TabPanel} from "@mui/lab";
 import MyVOX from "./Components/MyVOX";
 import NFTTableMobile from "./Components/NFTTableMobile";
@@ -29,19 +28,11 @@ function App(props) {
   const [mirandusVOX, setMirandusVOX] = useState(JSON.parse(localStorage.getItem("mirandusVOX")) || [])
   const [mirandusLow, setMirandusLow] = useState(localStorage.getItem("mirandusLow") || 0)
   const [mirandusMedian, setMirandusMedian] = useState(localStorage.getItem("mirandusMedian") || 0)
-  // const [page, setPage] = useState(0)
-  // const [pageSize, setPageSize] = useState(20)
-  // const [soldNFTs, setSoldNFTs] = useState([])
-  const [shouldUpdateSoldNFTs, setShouldUpdateSoldNFTs] = useState(false)
   const [theme, setTheme] = useState(Theme.dark)
 
   const relative = useMemo(() => {
     return new Intl.RelativeTimeFormat('en', { localeMatcher: "best fit", numeric: "always", style: 'long' });
   }, [])
-
-  // function createSoldNFT(buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol) {
-  //   return { buyer, date, ethPerRarity, id, image, name, opensea, price, rank, rarity, symbol };
-  // }
 
   const getNFTHelper = useCallback(async (openseaAPIURLs) => {
     let assets = []
@@ -161,57 +152,6 @@ function App(props) {
     }
   }, [enqueueSnackbar, getNFTHelper, nftTable, setNFTTable])
 
-  // const getSoldNFTs = useCallback(async () => {
-  //   let offset = page * pageSize
-  //
-  //   if (offset > 10000) {
-  //     offset = 10000
-  //   }
-  //
-  //   fetch(`https://api.opensea.io/api/v1/events?collection_slug=collectvox&event_type=successful&only_opensea=false&offset=${offset}&limit=${pageSize}`)
-  //     .then((res) => {
-  //       return res.json()
-  //     })
-  //     .then((json) => {
-  //       const events = json.asset_events
-  //
-  //       if (events.length === 0)
-  //         return
-  //
-  //       setSoldNFTs(
-  //         events.map((nft) => {
-  //           const id = nft.asset.token_id
-  //
-  //           const voxRarity = nftTable === 'townStar' ? townStarVOXRarity : mirandusVOXRarity
-  //
-  //           const vox = voxRarity.find(v => v.id === id)
-  //           const price = nft.total_price /= Math.pow(10, nft.payment_token.decimals)
-  //           const buyer = nft.winner_account.user ? nft.winner_account.user.username : nft.winner_account.address;
-  //
-  //           return (
-  //             createSoldNFT(
-  //               buyer,
-  //               new Date(nft.transaction.timestamp).toLocaleString('en-US', { month: "short", day: "numeric", hour: "numeric", minute: "numeric"}),
-  //               ['ETH', 'WETH'].includes(nft.payment_token.symbol) ? (price / vox.rarity) : null,
-  //               id,
-  //               nft.asset.image_url,
-  //               nft.asset.name,
-  //               nft.asset.permalink,
-  //               price,
-  //               vox.rank,
-  //               vox.rarity,
-  //               nft.payment_token.symbol
-  //             )
-  //           )
-  //         })
-  //       )
-  //   }).catch(() =>  {
-  //     console.log("Failed to connect to Opensea")
-  //
-  //     enqueueSnackbar(`Couldn't Get Sold NFTs From Opensea`, { variant: 'error' })
-  //   })
-  // }, [enqueueSnackbar, setSoldNFTs, nftTable, page, pageSize])
-
   useEffect(() => {
     if (!localStorage.getItem("theyUnderstand")) {
       enqueueSnackbar('This is a community project and not affiliated with Gala Games.',
@@ -243,23 +183,9 @@ function App(props) {
     else if (nftTable === 'townStar') {
       enqueueSnackbar(`Town Star VOX data was last updated about ${relative.format(Math.ceil(-1 * ((new Date().getTime() - dataUpdated) / 60000)), "minute")}`, { variant: 'info' })
     }
-
-    if (shouldUpdateSoldNFTs) {
-      // getSoldNFTs()
-      setShouldUpdateSoldNFTs(false)
-    }
-  }, [enqueueSnackbar, getNFTs, mirandusVOX, nftTable, props.notistackRef, relative, setMirandusVOX, setTownStarVOX, shouldUpdateSoldNFTs])
-
-  // const handleSoldNFTPageSizeChange = (newValue) => {
-  //   setPageSize(newValue)
-  //   setShouldUpdateSoldNFTs(true)
-  // }
+  }, [enqueueSnackbar, getNFTs, mirandusVOX, nftTable, props.notistackRef, relative, setMirandusVOX, setTownStarVOX])
 
   const handleNFTTableChange = async (event, newValue) => {
-    // if (newValue === 'sold') {
-    //   getSoldNFTs()
-    // }
-
     await setNFTTable(newValue)
 
     if (newValue === 'mirandus') {
@@ -290,7 +216,7 @@ function App(props) {
 
         <Statistics low={low} median={median} />
 
-        {window.innerWidth > 480 ? <NFTGraphDisplayController nfts={nftTable === 'townStar' ? townStarVOX : mirandusVOX} /> : null}
+        {window.innerWidth > 480 ? <NFTGraphDisplayController nfts={nftTable === 'townStar' ? townStarVOX : mirandusVOX} table={nftTable} /> : null}
 
         <Box sx={{ margin: "auto", maxWidth: '1300px', width: '90%' }}>
           <TabContext value={nftTable}>
@@ -299,7 +225,6 @@ function App(props) {
                 <Tab label="Town Star" value="townStar" />
                 { window.location.href.includes("mirandus-vox") ? <Tab label="Mirandus" value="mirandus" /> : null}
                 <Tab label="My VOX" value="mine" />
-                {/*<Tab label="Sold Listings" value="sold" />*/}
               </Tabs>
             </Box>
             <TabPanel value="townStar">
@@ -316,9 +241,6 @@ function App(props) {
             <TabPanel value="mine">
               <MyVOX account={account} mirandusLow={mirandusLow} mirandusMedian={mirandusMedian} setAccount={setAccount.bind(this)} townStarLow={townStarLow} townStarMedian={townStarMedian} />
             </TabPanel>
-            {/*<TabPanel value="sold">*/}
-            {/*  <SoldNFTTable nfts={soldNFTs} page={page} pageSize={pageSize} setPage={setPage} setPageSize={handleSoldNFTPageSizeChange} theme={theme} />*/}
-            {/*</TabPanel>*/}
           </TabContext>
         </Box>
 

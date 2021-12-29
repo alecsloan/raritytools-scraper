@@ -25,7 +25,7 @@ function NFTGraphDisplayController (props) {
           <NFTValueCurve nfts={props.nfts} />
         </TabPanel>
         <TabPanel value="2">
-          <NFTRarityCurve nfts={props.nfts} />
+          <NFTRarityCurve table={props.table} />
         </TabPanel>
         <TabPanel value="3">
         </TabPanel>

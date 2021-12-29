@@ -1,10 +1,20 @@
 import React, {useState} from 'react'
 import {Line} from "react-chartjs-2";
-import rarity from '../data/VOX-rarity.json'
+import townStarRarity from '../data/VOX-rarity.json'
+import mirandusRarity from '../data/Mirandus-VOX-rarity.json'
 import {ToggleButton, ToggleButtonGroup} from "@mui/material";
 
-function NFTValueCurve () {
+function NFTValueCurve (props) {
   const [scaleType, setScaleType] = useState("logarithmic")
+
+  let rarity
+
+  if (props.table === 'mirandus') {
+    rarity = mirandusRarity
+  }
+  else {
+    rarity = townStarRarity
+  }
 
   const handleChange = (event, newValue) => {
     if (newValue)
