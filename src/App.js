@@ -24,7 +24,11 @@ function App(props) {
   const [account, setAccount] = useState(null)
   const [nftTable, setNFTTable] = useState('townStar')
   const [townStarVOX, setTownStarVOX] = useState(JSON.parse(localStorage.getItem("townStarVOX")) || backupNFTs)
+  const [townStarLow, setTownStarLow] = useState(localStorage.getItem("townStarLow") || 0)
+  const [townStarMedian, setTownStarMedian] = useState(localStorage.getItem("townStarMedian") || 0)
   const [mirandusVOX, setMirandusVOX] = useState(JSON.parse(localStorage.getItem("mirandusVOX")) || [])
+  const [mirandusLow, setMirandusLow] = useState(localStorage.getItem("mirandusLow") || 0)
+  const [mirandusMedian, setMirandusMedian] = useState(localStorage.getItem("mirandusMedian") || 0)
   // const [page, setPage] = useState(0)
   // const [pageSize, setPageSize] = useState(20)
   // const [soldNFTs, setSoldNFTs] = useState([])
@@ -92,14 +96,33 @@ function App(props) {
       let mirandusAssets = await getNFTHelper(mirandusOpenseaAPIURLs)
 
       if (mirandusAssets) {
-        setMirandusVOX(mirandusAssets.filter(v => v))
-        localStorage.setItem("mirandusVOX", JSON.stringify(mirandusAssets.filter(v => v)))
+        mirandusAssets = mirandusAssets.filter(v => v)
+        setMirandusVOX(mirandusAssets)
+        localStorage.setItem("mirandusVOX", JSON.stringify(mirandusAssets))
         localStorage.setItem("mirandusDataUpdated", new Date().getTime())
         enqueueSnackbar(`Mirandus VOX Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
 
         //Force an update
         setNFTTable("townStar")
         setNFTTable("mirandus")
+
+        const rarityPerEthValues = mirandusAssets.map(nft => nft.price / nft.rarity)
+
+        const rarityPerEthSortedValues = rarityPerEthValues.sort()
+
+        const low = rarityPerEthSortedValues[0]
+
+        setMirandusLow(low)
+        localStorage.setItem("mirandusLow", low)
+
+        const middle = Math.ceil(rarityPerEthSortedValues.length / 2)
+
+        const median = rarityPerEthSortedValues.length % 2 === 0
+            ? (rarityPerEthSortedValues[middle] + rarityPerEthSortedValues[middle - 1]) / 2
+            : rarityPerEthSortedValues[middle - 1]
+
+        setMirandusMedian(median)
+        localStorage.setItem("mirandusMedian", median)
       }
     }
     else {
@@ -116,6 +139,24 @@ function App(props) {
         localStorage.setItem("townStarVOX", JSON.stringify(townStarAssets))
         localStorage.setItem("dataUpdated", new Date().getTime())
         enqueueSnackbar(`Town Star VOX Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
+
+        const rarityPerEthValues = townStarAssets.map(nft => nft.price / nft.rarity)
+
+        const rarityPerEthSortedValues = rarityPerEthValues.sort()
+
+        const low = rarityPerEthSortedValues[0]
+
+        setTownStarLow(low)
+        localStorage.setItem("townStarLow", low)
+
+        const middle = Math.ceil(rarityPerEthSortedValues.length / 2)
+
+        const median = rarityPerEthSortedValues.length % 2 === 0
+            ? (rarityPerEthSortedValues[middle] + rarityPerEthSortedValues[middle - 1]) / 2
+            : rarityPerEthSortedValues[middle - 1]
+
+        setTownStarMedian(median)
+        localStorage.setItem("townStarMedian", median)
       }
     }
   }, [enqueueSnackbar, getNFTHelper, nftTable, setNFTTable])
@@ -233,13 +274,21 @@ function App(props) {
     }
   }
 
+  let low = nftTable === 'mirandus' ? mirandusLow : townStarLow
+  let median = nftTable === 'mirandus' ? mirandusMedian : townStarMedian
+
+  if (nftTable === 'mine') {
+    low = null
+    median = null
+  }
+
   return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
         <Header getNFTs={getNFTs.bind(this)} minuteCooldown={minuteCooldown} setTheme={setTheme.bind(this)} table={nftTable} theme={theme} />
 
-        <Statistics nfts={nftTable === 'mirandus' ? mirandusVOX : townStarVOX} />
+        <Statistics low={low} median={median} />
 
         {window.innerWidth > 480 ? <NFTGraphDisplayController nfts={nftTable === 'townStar' ? townStarVOX : mirandusVOX} /> : null}
 
@@ -249,7 +298,7 @@ function App(props) {
               <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >
                 <Tab label="Town Star" value="townStar" />
                 { window.location.href.includes("mirandus-vox") ? <Tab label="Mirandus" value="mirandus" /> : null}
-                <Tab label="My Town Star VOX" value="mine" />
+                <Tab label="My VOX" value="mine" />
                 {/*<Tab label="Sold Listings" value="sold" />*/}
               </Tabs>
             </Box>
@@ -265,7 +314,7 @@ function App(props) {
               : null
             }
             <TabPanel value="mine">
-              <MyVOX account={account} nfts={townStarVOX} setAccount={setAccount.bind(this)} />
+              <MyVOX account={account} mirandusLow={mirandusLow} mirandusMedian={mirandusMedian} setAccount={setAccount.bind(this)} townStarLow={townStarLow} townStarMedian={townStarMedian} />
             </TabPanel>
             {/*<TabPanel value="sold">*/}
             {/*  <SoldNFTTable nfts={soldNFTs} page={page} pageSize={pageSize} setPage={setPage} setPageSize={handleSoldNFTPageSizeChange} theme={theme} />*/}
