@@ -10,6 +10,9 @@ function WalletConnect (props) {
           const accounts = await window.ethereum.enable();
           props.setAccount(accounts[0]);
         }
+        else {
+          props.setAccount("")
+        }
       }}
       style={{
         backgroundColor: "#2d365c",

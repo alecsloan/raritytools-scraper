@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import {
-  AppBar,
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  IconButton,
-  Toolbar,
-  Typography
+    AppBar,
+    Box,
+    Button,
+    CircularProgress, Dialog,
+    Grid,
+    IconButton,
+    Toolbar,
+    Typography
 } from "@mui/material";
-import {Brightness2, Brightness7, LocalGasStation, Refresh} from "@mui/icons-material";
+import {Brightness2, Brightness7, Calculate, LocalGasStation, Refresh} from "@mui/icons-material";
 
 import * as Theme from "../Theme/index"
+import GalaPower from "./GalaPower";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -39,6 +40,7 @@ function CircularProgressWithLabel(props) {
 
 function Header (props) {
   const [gas, setGas] = useState(false)
+  const [gpPanelOpen, setGPPanelOpen] = useState(false)
 
   let dataUpdated = localStorage.getItem("dataUpdated")
 
@@ -96,9 +98,9 @@ function Header (props) {
             </IconButton>
           </Grid>
 
-          <Grid item xs={3} />
+          <Grid item xs={2} />
 
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <Button
               href="https://gasgas.io/"
               style={{
@@ -115,9 +117,32 @@ function Header (props) {
             >
               {gas.standard ? (gas.standard * .000000001).toFixed(0) : "---"}
             </Button>
+            <Button
+              onClick={() => {
+                  setGPPanelOpen(true)
+              }}
+              style={{
+                  backgroundColor: "#2d365c",
+                  borderRadius: "4px",
+                  float: "right",
+                  height: "80%",
+                  padding: "12px 16px",
+                  marginTop: '5px',
+                  marginRight: '5px'
+              }}
+              size="large"
+              startIcon={<Calculate />}
+              variant="contained"
+            >
+              GP
+            </Button>
           </Grid>
         </Grid>
       </Toolbar>
+
+      <Dialog maxWidth="md" onClose={() => {setGPPanelOpen(null);}} open={gpPanelOpen}>
+        <GalaPower account={props.account} />
+      </Dialog>
     </AppBar>
   );
 }
