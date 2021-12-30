@@ -98,9 +98,7 @@ function Header (props) {
             </IconButton>
           </Grid>
 
-          <Grid item xs={2} />
-
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <Button
               href="https://gasgas.io/"
               style={{
