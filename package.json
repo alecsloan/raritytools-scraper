@@ -32,6 +32,7 @@
     "build": "react-scripts build",
     "scrape": "node -r esm scrape.js",
     "scrape-rarity": "node -r esm scrapeRarity.js",
+    "scrape-missing-rarity": "node -r esm scrapeMissingRarity.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

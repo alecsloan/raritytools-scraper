@@ -1,7 +1,7 @@
 const playwright = require('playwright');
 var fs = require('fs');
 
-const offset = 5499
+const offset = 0
 
 async function scrapeNFTs() {
   console.log("Scrape started: " + new Date().toLocaleTimeString('en-US'))

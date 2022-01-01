@@ -1,7 +1,7 @@
 const playwright = require('playwright');
 var fs = require('fs');
 
-const collectionMax = 7859
+const collectionMax = 8888
 const offset = 0
 
 async function scrapeNFTs() {
