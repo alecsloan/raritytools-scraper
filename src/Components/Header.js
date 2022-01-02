@@ -39,6 +39,7 @@ function CircularProgressWithLabel(props) {
 }
 
 function Header (props) {
+  const [time, setTime] = useState(Date.now());
   const [gas, setGas] = useState(false)
   const [gpPanelOpen, setGPPanelOpen] = useState(false)
 
@@ -48,7 +49,12 @@ function Header (props) {
       dataUpdated = localStorage.getItem("mirandusDataUpdated")
   }
 
-  const cooldownPercent = ((new Date().getTime() - dataUpdated) / (props.minuteCooldown * 60000) * 100)
+    useEffect(() => {
+        const interval = setInterval(() => setTime(Date.now()), 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
   useEffect(
     () => {
@@ -57,12 +63,10 @@ function Header (props) {
       socket.addEventListener("message", (event) => {
         setGas(JSON.parse(event.data).data)
       });
-
-      return () => {
-        socket.close()
-      }
     }
   )
+
+  const cooldownPercent = ((time - dataUpdated) / (props.minuteCooldown * 60000) * 100)
 
   return (
     <AppBar position="static">
