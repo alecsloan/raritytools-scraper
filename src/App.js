@@ -45,7 +45,7 @@ function App(props) {
         }).catch(() =>  {
           console.log("Failed to connect to Opensea")
 
-          enqueueSnackbar(`Couldn't get active listings from Opensea. Using fallback data.`, { variant: 'error' })
+          enqueueSnackbar(`Opensea rejected your request to update listing data. Try again in a minute.`, { variant: 'error' })
         })
 
     if (assets.length === 0)
