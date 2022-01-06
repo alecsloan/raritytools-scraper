@@ -93,10 +93,6 @@ function App(props) {
         localStorage.setItem("mirandusDataUpdated", new Date().getTime())
         enqueueSnackbar(`Mirandus VOX Updated: ${new Date().toLocaleString('en-US')}`, { variant: 'success' })
 
-        //Force an update
-        setNFTTable("townStar")
-        setNFTTable("mirandus")
-
         const rarityPerEthValues = mirandusAssets.map(nft => nft.price / nft.rarity)
 
         const rarityPerEthSortedValues = rarityPerEthValues.sort()
