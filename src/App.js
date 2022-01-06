@@ -146,7 +146,7 @@ function App(props) {
         localStorage.setItem("townStarMedian", median)
       }
     }
-  }, [enqueueSnackbar, getNFTHelper, nftTable, setNFTTable])
+  }, [enqueueSnackbar, getNFTHelper, nftTable])
 
   useEffect(() => {
     if (!localStorage.getItem("theyUnderstand")) {
