@@ -34,7 +34,7 @@ function MyVOX (props) {
         })
       )
 
-      await Promise.all([fetch(`https://api.opensea.io/api/v1/assets?owner=${props.account}&order_direction=desc&offset=0&limit=50&collection=collectvox`), fetch(`https://api.opensea.io/api/v1/assets?owner=${props.account}&order_direction=desc&offset=0&limit=50&collection=collectvoxmirandus`)])
+      await Promise.all([fetch(`https://data.rarity.tools/api/proxy/api/v1/assets?owner=${props.account}&order_direction=desc&offset=0&limit=50&collection=collectvox`), fetch(`https://data.rarity.tools/api/proxy/api/v1/assets?owner=${props.account}&order_direction=desc&offset=0&limit=50&collection=collectvoxmirandus`)])
         .then(responses =>
             Promise.all(responses.map(res => res.json()))
         ).then(json => {

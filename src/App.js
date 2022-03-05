@@ -77,11 +77,11 @@ function App(props) {
   }, [enqueueSnackbar])
 
   const getNFTs = useCallback(async (table = nftTable) => {
-    if (window.location.href.includes("mirandus-vox") && table === "mirandus") {
+    if (table === "mirandus") {
       let mirandusOpenseaAPIURLs = []
 
       for (let offset = 0; offset < 5789; offset += 50) {
-        mirandusOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvoxmirandus`)
+        mirandusOpenseaAPIURLs.push(`https://data.rarity.tools/api/proxy/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvoxmirandus`)
       }
 
       let mirandusAssets = await getNFTHelper(mirandusOpenseaAPIURLs)
@@ -116,7 +116,7 @@ function App(props) {
       let townStarOpenseaAPIURLs = []
 
       for (let offset = 0; offset < 8888; offset += 50) {
-        townStarOpenseaAPIURLs.push(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvox`)
+        townStarOpenseaAPIURLs.push(`https://data.rarity.tools/api/proxy/api/v1/assets?order_direction=desc&offset=${offset}&limit=50&collection=collectvox`)
       }
 
       let townStarAssets = await getNFTHelper(townStarOpenseaAPIURLs)
@@ -187,7 +187,7 @@ function App(props) {
     if (newValue === 'mirandus') {
       const mirandusDataUpdated = localStorage.getItem("mirandusDataUpdated")
 
-      if (window.location.href.includes("mirandus-vox") && (!mirandusDataUpdated || ((new Date().getTime() - mirandusDataUpdated) / (minuteCooldown * 60000) * 100) >= 100)) {
+      if (!mirandusDataUpdated || ((new Date().getTime() - mirandusDataUpdated) / (minuteCooldown * 60000) * 100) >= 100) {
         getNFTs('mirandus')
       }
       else {
@@ -219,21 +219,17 @@ function App(props) {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs indicatorColor="secondary" onChange={handleNFTTableChange} value={nftTable} >
                 <Tab label="Town Star" value="townStar" />
-                { window.location.href.includes("mirandus-vox") ? <Tab label="Mirandus" value="mirandus" /> : null}
+                <Tab label="Mirandus" value="mirandus" />
                 <Tab label="My VOX" value="mine" />
               </Tabs>
             </Box>
             <TabPanel value="townStar">
               {window.innerWidth > 480 ? <NFTTable nfts={townStarVOX} theme={theme} /> : <NFTTableMobile nfts={townStarVOX} theme={theme} />}
             </TabPanel>
-            {
-              window.location.href.includes("mirandus-vox")
-                ? <TabPanel value="mirandus">
-                  {window.innerWidth > 480 ? <NFTTable isMirandus={true} nfts={mirandusVOX} theme={theme}/> :
-                      <NFTTableMobile nfts={mirandusVOX} theme={theme}/>}
-                </TabPanel>
-              : null
-            }
+              <TabPanel value="mirandus">
+                {window.innerWidth > 480 ? <NFTTable isMirandus={true} nfts={mirandusVOX} theme={theme}/> :
+                  <NFTTableMobile nfts={mirandusVOX} theme={theme}/>}
+              </TabPanel>
             <TabPanel value="mine">
               <MyVOX account={account} mirandusLow={mirandusLow} mirandusMedian={mirandusMedian} setAccount={setAccount.bind(this)} townStarLow={townStarLow} townStarMedian={townStarMedian} />
             </TabPanel>
